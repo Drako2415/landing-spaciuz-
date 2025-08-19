@@ -1,0 +1,839 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+<meta charset="utf-8" />
+<meta name="viewport" content="width=device-width, initial-scale=1" />
+<title>Spaciuz — Alquiler de Casas</title>
+<meta name="description" content="Alquiler de casas y departamentos en todo el Perú. Spaciuz: asesoría, visitas y contratos seguros." />
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+
+<!-- FAVICON: la URL que indicaste + fallback SVG inline -->
+<link rel="icon" href="https://scontent-lim1-1.cdninstagram.com/v/t51.2885-19/503316478_17876395350347172_7900308105013286753_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-lim1-1.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2QEHz8Md5yFe2AErADMi6mlB4KI_pi4yXBep2fVHQlnd18QYEkD9Jl4azg_P7LdQfPc&_nc_ohc=Hiphq1gD0I4Q7kNvwGCcuCz&_nc_gid=aqm3_3-kfCcTOIMPtA2d3w&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfVGTImS1-PL6G48lMGis9bIZiWr2eQPU9sH8HJYjoZwMQ&oe=68A48809&_nc_sid=8b3546" type="image/jpeg">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23d4af37'/%3E%3Ctext x='50' y='60' font-size='50' text-anchor='middle' fill='white' font-family='Poppins,Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+
+<style>
+  /* -------------------------
+     PALETA & TOKENS
+  -------------------------- */
+  :root{
+    --negro:#1e1e1e;
+    --dorado:#d4af37;
+    --dorado-2:#e2c55b;
+    --blanco:#ffffff;
+    --beige:#faf6f0;
+    --gris:#6b7280;
+    --gris-claro:#f5f5f5;
+    --radius:14px;
+    --shadow:0 14px 28px rgba(0,0,0,.12);
+    --shadow-soft:0 8px 18px rgba(0,0,0,.08);
+    --accent:#1e3a8a;
+  }
+  *{box-sizing:border-box}
+  html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--beige);color:var(--negro);scroll-behavior:smooth}
+  img{max-width:100%;display:block}
+  a{text-decoration:none;color:inherit}
+
+  /* ================= HEADER (HU-01) ================= */
+  header{
+    position:fixed; top:0; left:0; right:0; z-index:1200;
+    background: linear-gradient(90deg, rgba(250,246,240,.98), rgba(245,240,233,.98));
+    border-bottom:1px solid rgba(0,0,0,0.05);
+    backdrop-filter: blur(6px) saturate(120%);
+    box-shadow: var(--shadow-soft);
+  }
+  .nav{
+    max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 18px;
+  }
+  .logo-wrap{display:flex; align-items:center; gap:12px}
+  .logo-wrap img{height:44px}
+  .brand{font-weight:800; color:var(--negro); letter-spacing:.2px}
+  nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0; align-items:center}
+  nav a{color:var(--negro); font-weight:700; padding:8px 10px; border-radius:8px; transition:all .18s}
+  nav a:hover{background:linear-gradient(90deg, rgba(212,175,55,.09), rgba(226,197,91,.08)); color:var(--negro)}
+  .hamb{display:none; font-size:26px; cursor:pointer; color:var(--negro)}
+
+  @media(max-width:900px){
+    nav ul{display:none; position:fixed; right:16px; top:64px; background:var(--blanco); padding:14px; border-radius:12px; box-shadow:var(--shadow); flex-direction:column; min-width:200px}
+    nav ul.show{display:flex}
+    .hamb{display:block}
+  }
+
+  /* anchor offset for fixed header */
+  section{scroll-margin-top:88px}
+
+  /* ================= HERO / BANNER (HU-02) ================= */
+  .hero{
+    margin-top:64px; /* leave space for header */
+    background:
+      linear-gradient(120deg, rgba(30,30,30,.60), rgba(212,175,55,.12)),
+      url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
+    color:var(--blanco);
+    min-height:68vh; display:grid; place-items:center; text-align:center; padding:72px 18px;
+  }
+  .hero-inner{max-width:1000px}
+  .kicker{
+    display:inline-block; padding:6px 12px; border-radius:999px;
+    border:1px solid rgba(255,255,255,.14); color:#fff; background:rgba(0,0,0,.18);
+    margin-bottom:12px; font-weight:700; font-size:.9rem;
+  }
+  .hero h1{font-size:clamp(30px,5vw,52px); line-height:1.05; margin:8px 0 12px; font-weight:800}
+  .hero p{font-size:clamp(15px,1.6vw,18px); opacity:.95; margin:0 auto 22px; max-width:760px}
+  .cta{
+    display:inline-flex; align-items:center; gap:10px;
+    padding:12px 20px; border-radius:12px; font-weight:800;
+    color:var(--negro); background:linear-gradient(90deg,var(--dorado),var(--dorado-2));
+    box-shadow:0 12px 22px rgba(212,175,55,.18); transition:transform .18s, box-shadow .18s;
+  }
+  .cta:hover{transform:translateY(-3px)}
+
+  /* ================= SECCIONES ================= */
+  section{padding:72px 18px}
+  .container{max-width:1200px;margin:auto}
+  .title{ text-align:center; margin:0 auto 36px; max-width:860px}
+  .title h2{font-size:clamp(24px,3vw,32px); margin:0 0 8px}
+  .title p{color:var(--gris); margin:0}
+
+  /* ================= SERVICIOS (HU-03) ================= */
+  .services-wrap{position:relative}
+  .grid-desktop{display:grid; gap:20px; grid-template-columns:repeat(3,1fr)}
+  @media(max-width:960px){.grid-desktop{display:none}}
+  .scroller{
+    display:grid; grid-auto-flow:column; grid-auto-columns:minmax(260px,1fr); gap:18px;
+    overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;
+  }
+  .scroller::-webkit-scrollbar{height:10px}
+  .scroller::-webkit-scrollbar-thumb{background:rgba(30,30,30,.18); border-radius:999px}
+  .svc-card{
+    background:var(--blanco); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow-soft); scroll-snap-align:start;
+    display:flex; flex-direction:column; gap:12px; transition:transform .18s, box-shadow .18s;
+  }
+  .svc-card:hover{transform:translateY(-6px); box-shadow:var(--shadow)}
+  .svc-media{height:150px; border-radius:12px; overflow:hidden; position:relative}
+  .svc-media img{width:100%;height:100%;object-fit:cover}
+  .svc-badge{position:absolute; top:10px; left:10px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.92); color:#111; font-weight:800; font-size:.82rem; border:1px solid rgba(212,175,55,.45)}
+  .svc-head{display:flex; align-items:center; gap:12px}
+  .svc-icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#f6f6f6);border:1px solid rgba(0,0,0,.05)}
+  .svc-icon svg{width:24px;height:24px;fill:var(--negro)}
+  .svc-title{font-weight:800}
+  .svc-desc{color:var(--gris)}
+  .svc-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
+  .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.06);background:linear-gradient(90deg, rgba(212,175,55,.10), rgba(226,197,91,.12)); font-weight:700; font-size:.85rem}
+  .btn-more{margin-top:8px;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--dorado),var(--dorado-2));font-weight:800;cursor:pointer;color:var(--negro)}
+
+  /* ================= TESTIMONIOS (carrusel) ================= */
+  .testimonials-wrap{max-width:1100px;margin:auto}
+  .carousel { position:relative; overflow:hidden; border-radius:12px; }
+  .carousel-track{ display:flex; transition:transform .45s ease-in-out; }
+  .slide{ min-width:100%; box-sizing:border-box; padding:34px; background:var(--blanco); box-shadow:var(--shadow-soft) }
+  .slide .t-head{display:flex; align-items:center; gap:18px; margin-bottom:12px}
+  .slide .t-head img{width:80px;height:80px;border-radius:50%;object-fit:cover}
+  .slide .t-name{font-weight:800; font-size:1.05rem}
+  .slide blockquote{margin:12px 0 0; font-style:italic; color:var(--gris); font-size:clamp(16px,2vw,20px)}
+  .carousel-controls{ position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); display:flex; justify-content:space-between; pointer-events:none; padding:0 8px }
+  .carousel-controls button{ pointer-events:auto; background:rgba(0,0,0,.5); color:#fff; border:none; padding:10px 12px; border-radius:999px; cursor:pointer }
+  .dots{display:flex; gap:8px; justify-content:center; margin-top:14px}
+  .dot{width:12px;height:12px;border-radius:999px;background:rgba(0,0,0,.15);cursor:pointer}
+  .dot.active{background:var(--dorado)}
+
+  /* ================= FORMULARIO (HU-05) ================= */
+  form{ background:var(--blanco); border-radius:var(--radius); box-shadow:var(--shadow-soft); padding:20px; display:grid; gap:14px; max-width:920px; margin:auto }
+  .grid-2{ display:grid; gap:12px; grid-template-columns:repeat(2,1fr) }
+  @media(max-width:680px){ .grid-2{ grid-template-columns:1fr } }
+  label{ font-weight:700; font-size:.95rem }
+  input, select, textarea{ padding:12px; border-radius:10px; border:1px solid #e6e6e6; font-size:1rem }
+  textarea{ min-height:120px; }
+  .required::after{ content: " *"; color:#b91c1c }
+  .btn-submit{ padding:14px; border:none; border-radius:12px; cursor:pointer; font-weight:800; background:linear-gradient(90deg,var(--negro),#2b2b2b); color:#fff; font-size:1.03rem }
+  .btn-submit:hover{ transform:translateY(-2px) }
+
+  /* ================= MODAL ================= */
+  .modal { display:none; position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,.5); align-items:center; justify-content:center; padding:20px }
+  .modal.open{ display:flex }
+  .modal-card{ background:var(--blanco); border-radius:12px; max-width:920px; width:100%; box-shadow:var(--shadow); overflow:hidden; display:grid; grid-template-columns:1fr 420px; min-height:300px }
+  @media(max-width:920px){ .modal-card{ grid-template-columns:1fr } }
+  .modal-media img{ width:100%; height:100%; object-fit:cover }
+  .modal-body{ padding:20px; display:flex; flex-direction:column; gap:12px }
+  .modal-close{ margin-left:auto; background:transparent; border:none; font-size:22px; cursor:pointer }
+
+  .modal-price{ font-weight:900; color:var(--negro); background:linear-gradient(90deg, rgba(212,175,55,.06), rgba(226,197,91,.08)); padding:6px 10px; border-radius:8px; display:inline-block }
+
+  /* ================= UTILS/ANIM ================= */
+  .fade{ opacity:0; transform:translateY(18px); transition:all .6s ease-out }
+  .fade.show{ opacity:1; transform:none }
+  .zoom{ opacity:0; transform:scale(.98); transition:all .6s ease-out }
+  .zoom.show{ opacity:1; transform:scale(1) }
+  footer{ background:#111; color:#eee; text-align:center; padding:28px 12px; margin-top:36px }
+  /* small responsive tweaks */
+  @media (max-width:520px){
+    .cta{ padding:10px 14px; font-size:.95rem }
+    .hero h1{ font-size:28px }
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="nav">
+    <a href="#inicio" class="logo-wrap">
+      <img src="https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg" alt="Spaciuz logo">
+      <span class="brand"></span>
+    </a>
+
+    <div class="hamb" id="hamb" aria-label="Abrir menú" role="button" tabindex="0">☰</div>
+
+    <nav>
+      <ul id="menu">
+        <li><a href="#servicios">Servicios</a></li>
+        <li><a href="#testimonios">Testimonios</a></li>
+        <li><a href="#contacto">Contáctanos</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<!-- HERO -->
+<section class="hero" id="inicio" role="region" aria-label="Banner principal">
+  <div class="hero-inner fade">
+    <div class="kicker">Alquiler fácil, seguro y transparente</div>
+    <h1>Encuentra tu lugar ideal en Perú</h1>
+    <p>Explora casas y departamentos verificados, programa visitas y firma con contratos claros. Nosotros te acompañamos en todo el proceso.</p>
+    <a class="cta" href="#contacto">Quiero que me contacten</a>
+  </div>
+</section>
+
+<!-- SERVICIOS -->
+<section id="servicios" aria-label="Servicios">
+  <div class="container">
+    <div class="title fade">
+      <h2>Servicios pensados para ti</h2>
+      <p>Soluciones completas para alquilar con confianza y sin complicaciones.</p>
+    </div>
+
+    <div class="services-wrap">
+      <!-- Desktop grid -->
+      <div class="grid-desktop">
+        <!-- Alquiler de Casas -->
+        <article class="svc-card zoom" data-service="alquiler" data-img="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1400&auto=format&fit=crop">
+          <div class="svc-media">
+            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1200&auto=format&fit=crop" alt="Casa en alquiler">
+            <span class="svc-badge">Desde S/ 1,200</span>
+          </div>
+          <div class="svc-head">
+            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg></div>
+            <div class="svc-title">Alquiler de Casas</div>
+          </div>
+          <p class="svc-desc">Ubicaciones top y soporte constante.</p>
+          <div class="svc-meta"><span class="chip">Pet-friendly</span><span class="chip">Listas para habitar</span></div>
+          <button class="btn-more" data-service="alquiler">Ver más</button>
+        </article>
+
+        <!-- Departamentos -->
+        <article class="svc-card zoom" data-service="departamentos" data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop">
+          <div class="svc-media">
+            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="Departamento moderno">
+            <span class="svc-badge">Desde S/ 900</span>
+          </div>
+          <div class="svc-head">
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 21V3h18v18H3zm4-2h10v-2H7v2zm0-4h10v-2H7v2zm0-4h10V9H7v2z"/></svg></div>
+            <div class="svc-title">Departamentos</div>
+          </div>
+          <p class="svc-desc">Amoblados y bien ubicados.</p>
+          <div class="svc-meta"><span class="chip">Wifi incluido</span><span class="chip">Vistas increíbles</span></div>
+          <button class="btn-more" data-service="departamentos">Ver más</button>
+        </article>
+
+        <!-- Asesoría -->
+        <article class="svc-card zoom" data-service="asesoria" data-img="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1400&auto=format&fit=crop">
+          <div class="svc-media">
+            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="Asesoría inmobiliaria">
+            <span class="svc-badge">Sin costo</span>
+          </div>
+          <div class="svc-head">
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.2 0 4-1.8 4-4S14.2 4 12 4 8 5.8 8 8s1.8 4 4 4zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg></div>
+            <div class="svc-title">Asesoría Personalizada</div>
+          </div>
+          <p class="svc-desc">Acompañamiento total.</p>
+          <div class="svc-meta"><span class="chip">Atención 24/7</span><span class="chip">Multicanal</span></div>
+          <button class="btn-more" data-service="asesoria">Ver más</button>
+        </article>
+
+        <!-- Administración -->
+        <article class="svc-card zoom" data-service="administracion" data-img="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1400&auto=format&fit=crop">
+          <div class="svc-media">
+            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop" alt="Administración">
+            <span class="svc-badge">Para propietarios</span>
+          </div>
+          <div class="svc-head">
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4V4zm0 14h16v2H4v-2zM7 7h5v6H7V7z"/></svg></div>
+            <div class="svc-title">Administración de Propiedades</div>
+          </div>
+          <p class="svc-desc">Cobranzas, mantenimiento y reportes: todo en un solo lugar.</p>
+          <div class="svc-meta"><span class="chip">Reportes mensuales</span><span class="chip">Mantenimiento</span></div>
+          <button class="btn-more" data-service="administracion">Ver más</button>
+        </article>
+
+        <!-- Foto & Video -->
+        <article class="svc-card zoom" data-service="fotovid" data-img="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=1400&auto=format&fit=crop">
+          <div class="svc-media">
+            <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=1200&auto=format&fit=crop" alt="Foto y video">
+            <span class="svc-badge">+ Visitas</span>
+          </div>
+          <div class="svc-head">
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4V5zm8 12a5 5 0 100-10 5 5 0 000 10z"/></svg></div>
+            <div class="svc-title">Foto & Video Pro</div>
+          </div>
+          <p class="svc-desc">Anuncios que destacan con fotografía profesional y recorridos 360°.</p>
+          <div class="svc-meta"><span class="chip">HDR</span><span class="chip">Tour 360°</span></div>
+          <button class="btn-more" data-service="fotovid">Ver más</button>
+        </article>
+
+        <!-- Legal -->
+        <article class="svc-card zoom" data-service="legal" data-img="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop">
+          <div class="svc-media">
+            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="Asesoría Legal">
+            <span class="svc-badge">Legal</span>
+          </div>
+          <div class="svc-head">
+            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 1l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V5l9-4zm0 6a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
+            <div class="svc-title">Asesoría Legal</div>
+          </div>
+          <p class="svc-desc">Verificación de documentos, contratos y garantías para tu tranquilidad.</p>
+          <div class="svc-meta"><span class="chip">Revisión de cargas</span><span class="chip">Contratos</span></div>
+          <button class="btn-more" data-service="legal">Ver más</button>
+        </article>
+      </div>
+
+      <!-- Mobile scroller -->
+      <div class="scroller" aria-hidden="true">
+        <article class="svc-card" data-service="alquiler">
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1200&auto=format&fit=crop" alt="Casa" /><span class="svc-badge">Desde S/ 1,200</span></div>
+          <div class="svc-head"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg></div><div class="svc-title">Alquiler de Casas</div></div>
+          <p class="svc-desc">Ubicaciones top y soporte constante.</p>
+          <button class="btn-more" data-service="alquiler">Ver más</button>
+        </article>
+        <article class="svc-card" data-service="departamentos">
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="Depto" /><span class="svc-badge">Desde S/ 900</span></div>
+          <div class="svc-head"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 21V3h18v18H3zm4-2h10v-2H7v2zm0-4h10v-2H7v2zm0-4h10V9H7v2z"/></svg></div><div class="svc-title">Departamentos</div></div>
+          <p class="svc-desc">Amoblados y bien ubicados.</p>
+          <button class="btn-more" data-service="departamentos">Ver más</button>
+        </article>
+        <article class="svc-card" data-service="asesoria">
+          <div class="svc-media"><img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="Asesoria" /><span class="svc-badge">Sin costo</span></div>
+          <div class="svc-head"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.2 0 4-1.8 4-4S14.2 4 12 4 8 5.8 8 8s1.8 4 4 4zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg></div><div class="svc-title">Asesoría</div></div>
+          <p class="svc-desc">Acompañamiento total.</p>
+          <button class="btn-more" data-service="asesoria">Ver más</button>
+        </article>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- MODAL ÚNICO dinámico -->
+<div id="modal" class="modal" aria-hidden="true">
+  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+    <div class="modal-media" id="modalMedia"><img src="" alt=""></div>
+    <div class="modal-body">
+      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+      <h3 id="modalTitle"></h3>
+      <div style="display:flex;gap:12px;align-items:center;">
+        <div id="modalPrice" class="modal-price" aria-hidden="true"></div>
+        <div id="modalShort" style="color:var(--gris)"></div>
+      </div>
+      <p id="modalText" style="color:var(--gris)"></p>
+      <div id="modalDetails" style="color:var(--negro);line-height:1.45"></div>
+      <div id="modalChips" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div>
+      <div style="margin-top:auto;display:flex;gap:10px;flex-wrap:wrap">
+        <a class="cta" href="#contacto" id="modalContactBtn" style="text-decoration:none;display:inline-block">Contactar sobre este servicio</a>
+        <button id="modalVisitBtn" class="btn-more" style="background:linear-gradient(90deg,var(--accent),#1450b6);color:white">Reservar visita</button>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- TESTIMONIOS (carrusel) -->
+<section id="testimonios">
+  <div class="container">
+    <div class="title fade">
+      <h2>Clientes satisfechos</h2>
+      <p>Historias reales de quienes ya encontraron su hogar con nosotros.</p>
+    </div>
+
+    <div class="testimonials-wrap">
+      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Testimonios">
+        <div class="carousel-track" id="carouselTrack" role="list">
+          <div class="slide" role="listitem">
+            <div class="t-head"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María López"><div><div class="t-name">María López</div><div class="stars">★★★★★</div></div></div>
+            <blockquote>“En menos de una semana tenía las llaves. Trato humano y comunicación clara. El equipo me acompañó en cada paso y resolvieron todas mis dudas con rapidez.”</blockquote>
+          </div>
+          <div class="slide" role="listitem">
+            <div class="t-head"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="José Pérez"><div><div class="t-name">José Pérez</div><div class="stars">★★★★★</div></div></div>
+            <blockquote>“El proceso fue transparente de principio a fin. El contrato y la verificación legal estuvieron impecables. Recomendado 100%.”</blockquote>
+          </div>
+          <div class="slide" role="listitem">
+            <div class="t-head"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Luis García"><div><div class="t-name">Luis Santisteban </div><div class="stars">★★★★★</div></div></div>
+            <blockquote>“Me ayudaron con la verificación legal y todo fue rápido y seguro. Las fotos y el tour 360 me dieron la confianza que necesitaba.”</blockquote>
+          </div>
+          <div class="slide" role="listitem">
+            <div class="t-head"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Andrea Castillo"><div><div class="t-name">Andrea Castillo</div><div class="stars">★★★★★</div></div></div>
+            <blockquote>“Fotos profesionales que realmente mostraban el inmueble. ¡Encontré depa en 4 días! Atención cercana y muy profesionales.”</blockquote>
+          </div>
+        </div>
+
+        <div class="carousel-controls" aria-hidden="false">
+          <button class="prev" id="prevBtn" aria-label="Anterior">&#10094;</button>
+          <button class="next" id="nextBtn" aria-label="Siguiente">&#10095;</button>
+        </div>
+      </div>
+
+      <div class="dots" id="dots" aria-hidden="false"></div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTO (formulario completo HU-05) -->
+<section id="contacto">
+  <div class="container">
+    <div class="title fade">
+      <h2>Contáctanos</h2>
+      <p>Cuéntanos qué buscas y te ayudamos hoy mismo.</p>
+    </div>
+
+    <form id="contactForm" action="https://formspree.io/f/mvgqyzvo" method="POST" class="fade" novalidate>
+      <div class="grid-2">
+        <div>
+          <label class="required" for="apellidos">Apellidos</label>
+          <input id="apellidos" name="apellidos" type="text" required />
+        </div>
+        <div>
+          <label class="required" for="nombres">Nombres</label>
+          <input id="nombres" name="nombres" type="text" required />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label class="required" for="email">Correo electrónico</label>
+          <input id="email" name="email" type="email" required />
+        </div>
+        <div>
+          <label for="telefono">Teléfono (opcional)</label>
+          <input id="telefono" name="telefono" type="tel" placeholder="+51 999 999 999" />
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label class="required" for="region">Región</label>
+          <select id="region" name="region" required><option value="">Seleccione región</option></select>
+        </div>
+        <div>
+          <label class="required" for="provincia">Provincia</label>
+          <select id="provincia" name="provincia" required disabled><option value="">Seleccione provincia</option></select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label class="required" for="distrito">Distrito</label>
+          <select id="distrito" name="distrito" required disabled><option value="">Seleccione distrito</option></select>
+        </div>
+        <div>
+          <label class="required" for="tipo">Tipo de inmueble</label>
+          <select id="tipo" name="tipo" required>
+            <option value="">Seleccione tipo</option>
+            <option value="Casa">Casa</option>
+            <option value="Departamento">Departamento</option>
+            <option value="Mini-depa">Mini-depa</option>
+            <option value="Habitación">Habitación</option>
+          </select>
+        </div>
+      </div>
+
+      <div class="grid-2">
+        <div>
+          <label for="presupuesto">Presupuesto aprox. (S/)</label>
+          <input id="presupuesto" name="presupuesto" type="number" min="0" step="100" placeholder="Ej. 1500" />
+        </div>
+        <div>
+          <label for="fecha">Fecha estimada de mudanza</label>
+          <input id="fecha" name="fecha" type="date" />
+        </div>
+      </div>
+
+      <div>
+        <label class="required" for="mensaje">Mensaje</label>
+        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos zona, cuartos, si aceptas mascotas, etc." required></textarea>
+      </div>
+
+      <button class="btn-submit" type="submit">Enviar solicitud</button>
+    </form>
+  </div>
+</section>
+
+<footer>
+  <p>© 2025 Spaciuz. Todos los derechos reservados.</p>
+</footer>
+
+<!-- Small toast for confirmations -->
+<div id="toast" style="position:fixed;right:18px;bottom:18px;background:rgba(30,30,30,.95);color:#fff;padding:12px 16px;border-radius:10px;display:none;z-index:2500;box-shadow:var(--shadow)"></div>
+
+<script>
+/* ================= MENU MÓVIL ================= */
+const hamb = document.getElementById('hamb');
+const menu = document.getElementById('menu');
+hamb?.addEventListener('click', ()=> menu.classList.toggle('show'));
+hamb?.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') menu.classList.toggle('show'); });
+
+/* ================= SCROLL ANIMATIONS ================= */
+const reveal = (selector)=> {
+  const obs = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); }
+    });
+  },{threshold:0.18});
+  document.querySelectorAll(selector).forEach(el=>obs.observe(el));
+};
+reveal('.fade'); reveal('.zoom');
+
+/* ================= MODAL SERVICIOS ================= */
+const modal = document.getElementById('modal');
+const modalTitle = document.getElementById('modalTitle');
+const modalText = document.getElementById('modalText');
+const modalMedia = document.getElementById('modalMedia');
+const modalChips = document.getElementById('modalChips');
+const modalContactBtn = document.getElementById('modalContactBtn');
+const modalClose = document.getElementById('modalClose');
+const modalPrice = document.getElementById('modalPrice');
+const modalShort = document.getElementById('modalShort');
+const modalDetails = document.getElementById('modalDetails');
+const modalVisitBtn = document.getElementById('modalVisitBtn');
+
+/* Services data (complete, used by modal) */
+const servicesData = {
+  'alquiler': {
+    title: 'Alquiler de Casas',
+    img: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1400&auto=format&fit=crop',
+    price: 'Desde S/ 1,200',
+    text: 'Ubicaciones top y soporte constante.',
+    long: '<strong>Descripción extendida:</strong> Selección de casas en distritos residenciales y familiares, con seguridad, parqueo y mantenimiento. Contratos transparentes y acompañamiento en todo el proceso.',
+    chips: ['Pet-friendly','Listas para habitar','Visitas programadas'],
+    features: ['Seguridad 24/7','Mantenimiento incluido','Contrato digital']
+  },
+  'departamentos': {
+    title: 'Departamentos',
+    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop',
+    price: 'Desde S/ 900',
+    text: 'Amoblados y bien ubicados.',
+    long: '<strong>Descripción extendida:</strong> Departamentos céntricos y residenciales, opciones amobladas o sin amoblar, flexibilidad de contrato por temporada o largo plazo.',
+    chips: ['Wifi incluido','Amoblados','Ubicación urbana'],
+    features: ['Internet incluido (según plan)','Limpieza opcional','Estacionamiento disponible']
+  },
+  'asesoria': {
+    title: 'Asesoría Personalizada',
+    img: 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1400&auto=format&fit=crop',
+    price: 'Sin costo',
+    text: 'Acompañamiento total.',
+    long: '<strong>Descripción extendida:</strong> Asesoría en búsqueda, negociación y firma. Revisamos documentación y te explicamos cláusulas clave para proteger tus derechos.',
+    chips: ['Atención 24/7','Multicanal'],
+    features: ['Revisión de contratos','Checklist de entrega','Asesoría legal inicial']
+  },
+  'administracion': {
+    title: 'Administración de Propiedades',
+    img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1400&auto=format&fit=crop',
+    price: 'Servicios para propietarios',
+    text: 'Gestión completa para propietarios.',
+    long: '<strong>Descripción extendida:</strong> Manejo de cobranzas, mantenimiento, reportes y atención a inquilinos para maximizar la rentabilidad y reducir vacancias.',
+    chips: ['Reportes mensuales','Mantenimiento incluido'],
+    features: ['Gestión de cobranzas','Reportes financieros','Mantenimiento programado']
+  },
+  'fotovid': {
+    title: 'Foto & Video Pro',
+    img: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=1400&auto=format&fit=crop',
+    price: 'Servicios profesionales',
+    text: 'Anuncios que destacan con fotografía profesional y recorridos 360°.',
+    long: '<strong>Descripción extendida:</strong> Sesiones profesionales, HDR, tours 360 y edición para mejorar CTR del anuncio y reducir el tiempo de venta/alquiler.',
+    chips: ['HDR','Tour 360°'],
+    features: ['Fotografía HDR','Tour 360°','Edición profesional']
+  },
+  'legal': {
+    title: 'Asesoría Legal',
+    img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop',
+    price: 'Servicio legal',
+    text: 'Verificación de documentos, contratos y garantías.',
+    long: '<strong>Descripción extendida:</strong> Revisión de títulos, cargas y redacción de cláusulas específicas para proteger a propietarios e inquilinos.',
+    chips: ['Revisión de cargas','Contratos'],
+    features: ['Revisión de títulos','Redacción de contratos','Asesoramiento en litigios']
+  }
+};
+
+/* Abre modal con contenido completo */
+function openServiceModal(svc){
+  const data = servicesData[svc] || {};
+  const img = document.querySelector(`[data-service="${svc}"]`)?.dataset.img || data.img || '';
+  modalTitle.textContent = data.title || '';
+  modalPrice.textContent = data.price || '';
+  modalShort.textContent = data.text || '';
+  modalText.textContent = ''; // short text moved to modalShort
+  modalMedia.innerHTML = img ? `<img src="${img}" alt="${data.title}">` : '';
+  modalDetails.innerHTML = data.long || '';
+  modalChips.innerHTML = (data.chips || []).map(c=>`<span class="chip" style="background:linear-gradient(90deg, rgba(212,175,55,.12), rgba(226,197,91,.14));">${c}</span>`).join('');
+  if(data.features && data.features.length){
+    modalDetails.innerHTML += '<ul style="margin-top:10px;padding-left:18px;">' + data.features.map(f=>`<li>${f}</li>`).join('') + '</ul>';
+  }
+  modal.classList.add('open');
+  modal.setAttribute('aria-hidden','false');
+}
+
+document.querySelectorAll('.btn-more, .svc-card[data-service]').forEach(btn=>{
+  btn.addEventListener('click', (e)=>{
+    const el = e.currentTarget || e.target;
+    // try to get the service key from dataset or ancestor
+    const serviceKey = el.dataset.service || el.closest('.svc-card')?.dataset.service;
+    if(!serviceKey) return;
+    openServiceModal(serviceKey);
+  });
+});
+
+document.getElementById('modalClose')?.addEventListener('click', ()=> {
+  modal.classList.remove('open');
+  modal.setAttribute('aria-hidden','true');
+});
+modal.addEventListener('click',(e)=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
+
+/* Reservar visita -> llena el formulario y hace scroll */
+modalVisitBtn?.addEventListener('click', ()=>{
+  modal.classList.remove('open');
+  document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'});
+  const mensaje = document.getElementById('mensaje');
+  if(mensaje){
+    mensaje.value = mensaje.value ? mensaje.value + '\n\nMe interesa agendar una visita.' : 'Me interesa agendar una visita.';
+    mensaje.focus();
+  }
+});
+
+/* ================= CARRUSEL TESTIMONIOS ================= */
+const track = document.getElementById('carouselTrack');
+const slides = Array.from(track.children);
+let current = 0;
+const dotsWrap = document.getElementById('dots');
+
+function goToSlide(idx){
+  current = idx;
+  track.style.transform = `translateX(-${current * 100}%)`;
+  updateDots();
+}
+function nextSlide(){ goToSlide((current+1) % slides.length) }
+function prevSlide(){ goToSlide((current-1+slides.length) % slides.length) }
+
+document.getElementById('nextBtn')?.addEventListener('click', nextSlide);
+document.getElementById('prevBtn')?.addEventListener('click', prevSlide);
+
+/* create controls (dots) */
+function createDots(){
+  dotsWrap.innerHTML = '';
+  slides.forEach((_,i)=>{
+    const d = document.createElement('div'); d.className='dot'; if(i===0) d.classList.add('active');
+    d.setAttribute('role','button'); d.setAttribute('aria-label','Ir al testimonio '+(i+1));
+    d.addEventListener('click', ()=> goToSlide(i));
+    dotsWrap.appendChild(d);
+  });
+}
+function updateDots(){
+  document.querySelectorAll('.dot').forEach((dot, i)=> dot.classList.toggle('active', i===current));
+}
+createDots();
+
+/* autoplay with pause on hover */
+let autoplay = setInterval(nextSlide, 4500);
+const carouselEl = document.getElementById('carousel');
+carouselEl?.addEventListener('mouseenter', ()=> clearInterval(autoplay));
+carouselEl?.addEventListener('mouseleave', ()=> { clearInterval(autoplay); autoplay = setInterval(nextSlide, 4500); });
+
+/* ================= UBIGEO (Región -> Provincia -> Distrito) ================= */
+/* We focus only on Lambayeque, Cusco and Lima — full provinces and districts lists included */
+const dataUbigeo = {
+  "Lambayeque": {
+    "Chiclayo": [
+      "Chiclayo","José Leonardo Ortiz","La Victoria","Pimentel","Reque","Monsefú","Eten","Lagunas","Nueva Arica","Oyotún","Patapo","Pomalca","Pucalá","Santa Rosa","Saña","Cayaltí"
+    ],
+    "Ferreñafe": [
+      "Ferreñafe","Cañaris","Incahuasi","Manuel Antonio Mesones Muro","Pitipo","Pueblo Nuevo"
+    ],
+    "Lambayeque": [
+      "Lambayeque","Chochope","Illimo","Jayanca","Mochumí","Morrope","Motupe","Olmos","Pacora","Salas","San José","Túcume"
+    ]
+  },
+  "Cusco": {
+    "Cusco": [
+      "Cusco","San Sebastián","San Jerónimo","Santiago","Saylla","Wanchaq"
+    ],
+    "Acomayo": [
+      "Acomayo","Acopia","Acos","Mosoc Llacta","Pomacanchi","Rondocan","Sangarará"
+    ],
+    "Anta": [
+      "Anta","Ancahuasi","Cachimayo","Chinchaypujio","Huarocondo","Limatambo","Mollepata","Pucyura","Zurite"
+    ],
+    "Calca": [
+      "Calca","Coya","Lamay","Lares","Pisac","San Salvador","Taray","Yanatile"
+    ],
+    "Canas": [
+      "Yanaoca","Checca","Kunturkanki","Langui","Layo","Pampamarca","Quehue"
+    ],
+    "Canchis": [
+      "Sicuani","Checacupe","Combapata","Marangani","Pitumarca","San Pablo","San Pedro"
+    ],
+    "Chumbivilcas": [
+      "Santo Tomás","Capacmarca","Chamaca","Colquemarca","Livitaca","Llusco","Quiñota","Velille"
+    ],
+    "Espinar": [
+      "Espinar","Condoroma","Coporaque","Ocoruro","Pallpata","Pichigua","Suyckutambo"
+    ],
+    "La Convención": [
+      "Quillabamba","Echarate","Huayopata","Maranura","Ocobamba","Santa Ana","Santa Teresa","Vilcabamba"
+    ],
+    "Paruro": [
+      "Paruro","Accha","Ccapi","Colcha","Huanoquite","Omacha","Paccaritambo","Pillpinto","Yaurisque"
+    ],
+    "Paucartambo": [
+      "Paucartambo","Caicay","Challabamba","Colquepata","Huancarani","Kosñipata"
+    ],
+    "Quispicanchi": [
+      "Urcos","Andahuaylillas","Camanti","Ccarhuayo","Ccatca","Cusipata","Huaro","Lucre","Marcapata","Ocongate","Oropesa","Quiquijana"
+    ],
+    "Urubamba": [
+      "Urubamba","Chinchero","Huayllabamba","Machupicchu","Maras","Ollantaytambo","Yucay"
+    ]
+  },
+  "Lima": {
+    /* Provinces of Lima region with many districts (representative but comprehensive) */
+    "Lima": [
+      "Ancón","Ate","Barranco","Breña","Carabayllo","Chaclacayo","Chorrillos","Cieneguilla","Comas","El Agustino",
+      "Independencia","Jesús María","La Molina","La Victoria","Lima Cercado","Lince","Los Olivos","Lurigancho",
+      "Lurín","Magdalena del Mar","Miraflores","Pachacámac","Pucusana","Pueblo Libre","Puente Piedra","Punta Hermosa",
+      "Punta Negra","Rímac","San Bartolo","San Borja","San Isidro","San Juan de Lurigancho","San Juan de Miraflores",
+      "San Luis","San Martín de Porres","San Miguel","Santa Anita","Santa María del Mar","Santa Rosa","Santiago de Surco",
+      "Surquillo","Villa El Salvador","Villa María del Triunfo"
+    ],
+    "Barranca": [
+      "Barranca","Paramonga","Pativilca","Supe","Supe Puerto"
+    ],
+    "Cajatambo": [
+      "Cajatambo","Copa","Gorgor","Huancapón","Manás"
+    ],
+    "Canta": [
+      "Canta","Arahuay","Huamantanga","Huaros","Lachaqui","San Buenaventura","Santa Rosa de Quives"
+    ],
+    "Cañete": [
+      "San Vicente de Cañete","Asia","Calango","Cerro Azul","Chilca","Coayllo","Imperial","Lunahuaná","Mala","Nuevo Imperial","Pacarán","Quilmaná","San Antonio","San Luis","Santa Cruz de Flores","Zúñiga"
+    ],
+    "Huaral": [
+      "Huaral","Atavillos Alto","Atavillos Bajo","Aucallama","Chancay","Ihuarí","Lampian","Pacaraos","San Miguel de Acos","Santa Cruz de Andamarca","Sumbilca","Veintisiete de Noviembre"
+    ],
+    "Huarochirí": [
+      "Matucana","Antioquía","Callahuanca","Carampoma","Chicla","Cuenca","Huachupampa","Huanza","Huarochirí","Lahuaytambo","Langa","Laraos","Ricardo Palma","San Andrés de Tupicocha","San Antonio","San Bartolomé","San Damian","San Juan de Iris","San Juan de Tantaranche","San Lorenzo de Quinti","San Mateo","San Mateo de Otao","San Pedro de Casta","San Pedro de Huancayre","Sangallaya","Santa Cruz de Cocachacra","Santa Eulalia","Santiago de Anchucaya","Santiago de Tuna","Santo Domingo de Los Olleros","Surco"
+    ],
+    "Huaura": [
+      "Huacho","Ámbar","Caleta de Carquín","Checras","Hualmay","Huaura","Leoncio Prado","Paccho","Santa Leonor","Santa María","Sayan","Végueta"
+    ],
+    "Oyón": [
+      "Oyón","Andajes","Caujul","Cochamarca","Naván","Pachangara"
+    ],
+    "Yauyos": [
+      "Yauyos","Alis","Ayaviri","Azángaro","Cacra","Carania","Catahuasi","Chocos","Cochas","Colonia","Hongos","Huampara","Huancaya","Huangascar","Huantán","Huañec","Laraos","Lincha","Madeán","Miraflores","Omas","Putinza","Quinches","Quinocay","San Joaquín","San Pedro de Pilas","Tanta","Tauripampa","Tomas","Tupe","Viñac","Vitis"
+    ]
+  }
+};
+
+/* Wire up region/province/district selects (populate only Lambayeque, Cusco, Lima) */
+const $region = document.getElementById('region');
+const $provincia = document.getElementById('provincia');
+const $distrito = document.getElementById('distrito');
+
+(function initUbigeo(){
+  // ensure selects exist
+  if(!$region || !$provincia || !$distrito) return;
+  // populate region select with our three regions
+  Object.keys(dataUbigeo).forEach(r=>{
+    const opt = document.createElement('option'); opt.value = r; opt.textContent = r; $region.appendChild(opt);
+  });
+})();
+
+$region.addEventListener('change', ()=>{
+  const r = $region.value;
+  $provincia.innerHTML = '<option value="">Seleccione provincia</option>';
+  $distrito.innerHTML = '<option value="">Seleccione distrito</option>';
+  $provincia.disabled = !r; $distrito.disabled = true;
+  if(!r) return;
+  Object.keys(dataUbigeo[r]).forEach(p=>{ const opt = document.createElement('option'); opt.value = p; opt.textContent = p; $provincia.appendChild(opt); });
+});
+
+$provincia.addEventListener('change', ()=>{
+  const r=$region.value, p=$provincia.value;
+  $distrito.innerHTML = '<option value="">Seleccione distrito</option>';
+  $distrito.disabled = !(r && p);
+  if(!(r && p)) return;
+  dataUbigeo[r][p].forEach(d=>{ const opt=document.createElement('option'); opt.value=opt.textContent=d; $distrito.appendChild(opt); });
+});
+
+/* ================= FORM SUBMIT -> FORMSPREE (HU-05) ================= */
+const form = document.getElementById('contactForm');
+const toast = document.getElementById('toast');
+
+function showToast(msg, time=3800){
+  toast.textContent = msg; toast.style.display = 'block'; toast.style.opacity = '1';
+  setTimeout(()=> { toast.style.opacity = '0'; setTimeout(()=> toast.style.display='none',300); }, time);
+}
+
+if(form){
+  form.addEventListener('submit', async (e)=>{
+    e.preventDefault();
+    // basic email validation
+    const email = form.email.value.trim();
+    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
+    if(!regexEmail.test(email)){ alert('Por favor ingresa un correo válido.'); form.email.focus(); return; }
+    // required fields check (HTML required handles it too)
+    try{
+      const resp = await fetch(form.action, {
+        method: form.method,
+        body: new FormData(form),
+        headers: { 'Accept': 'application/json' }
+      });
+      if(resp.ok){
+        showToast('✅ ¡Gracias! Tu solicitud fue enviada.');
+        form.reset();
+        $provincia.innerHTML = '<option value="">Seleccione provincia</option>'; $provincia.disabled=true;
+        $distrito.innerHTML = '<option value="">Seleccione distrito</option>'; $distrito.disabled=true;
+        window.scrollTo({top:0, behavior:'smooth'});
+      } else {
+        const data = await resp.json().catch(()=>null);
+        console.error(data);
+        alert('❌ Ocurrió un problema al enviar. Intenta de nuevo.');
+      }
+    }catch(err){
+      console.error(err);
+      alert('❌ Error de conexión. Revisa internet e inténtalo otra vez.');
+    }
+  });
+}
+
+/* ================= SCROLL SUAVE EN LINKS (cerrar menu si móvil) ================= */
+document.querySelectorAll('a[href^="#"]').forEach(a=>{
+  a.addEventListener('click', (e)=>{
+    const id = a.getAttribute('href');
+    if(id.length>1){
+      e.preventDefault();
+      document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
+      menu.classList.remove('show');
+      modal.classList.remove('open');
+    }
+  });
+});
+
+/* ================= INIT carousel position ================= */
+(function initCarousel(){
+  track.style.transform = 'translateX(0)';
+  updateDots();
+})();
+</script>
+</body>
+</html>
