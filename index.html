@@ -1,405 +1,420 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-<meta charset="utf-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1" />
-<title>Spaciuz — Alquiler de Casas</title>
-<meta name="description" content="Alquiler de casas y departamentos en todo el Perú. Spaciuz: asesoría, visitas y contratos seguros." />
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <!-- ============================== -->
+  <!-- Spaciuz — Marketplace de Eventos  -->
+  <!-- Archivo único, adaptado al 100%  -->
+  <!-- Incluye: filtros, cards dinámicas,  -->
+  <!-- reservas, contratos, testimonios,   -->
+  <!-- FAQ, anfitriones, accesibilidad,    -->
+  <!-- SEO/OG/JSON-LD y PWA básico.        -->
+  <!-- ============================== -->
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Spaciuz — Marketplace de Espacios para Eventos</title>
+  <meta name="description" content="Explora y reserva espacios verificados para eventos en Perú: salones, rooftops, jardines, auditorios, casas de campo y locales multiuso. Programa visitas, firma con contratos claros y recibe acompañamiento en todo el proceso."/>
+  <link rel="canonical" href="https://spaciuz.com/" />
+  <meta name="theme-color" content="#111111" />
 
-<!-- FAVICON: la URL que indicaste + fallback SVG inline -->
-<link rel="icon" href="https://scontent-lim1-1.cdninstagram.com/v/t51.2885-19/503316478_17876395350347172_7900308105013286753_n.jpg?stp=dst-jpg_s150x150_tt6&efg=eyJ2ZW5jb2RlX3RhZyI6InByb2ZpbGVfcGljLmRqYW5nby4xMDgwLmMyIn0&_nc_ht=scontent-lim1-1.cdninstagram.com&_nc_cat=100&_nc_oc=Q6cZ2QEHz8Md5yFe2AErADMi6mlB4KI_pi4yXBep2fVHQlnd18QYEkD9Jl4azg_P7LdQfPc&_nc_ohc=Hiphq1gD0I4Q7kNvwGCcuCz&_nc_gid=aqm3_3-kfCcTOIMPtA2d3w&edm=AOQ1c0wBAAAA&ccb=7-5&oh=00_AfVGTImS1-PL6G48lMGis9bIZiWr2eQPU9sH8HJYjoZwMQ&oe=68A48809&_nc_sid=8b3546" type="image/jpeg">
-<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Crect width='100' height='100' fill='%23d4af37'/%3E%3Ctext x='50' y='60' font-size='50' text-anchor='middle' fill='white' font-family='Poppins,Arial' font-weight='700'%3ES%3C/text%3E%3C/svg%3E">
+  <!-- Open Graph -->
+  <meta property="og:title" content="Spaciuz — Marketplace de Eventos" />
+  <meta property="og:description" content="Explora y reserva espacios verificados: cumpleaños, baby showers, bodas pequeñas y reuniones corporativas." />
+  <meta property="og:type" content="website" />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1529634892263-34c57c2b2a9b?q=80&w=1200&auto=format&fit=crop" />
+  <meta property="og:locale" content="es_PE" />
 
-<style>
-  /* -------------------------
-     PALETA & TOKENS
-  -------------------------- */
-  :root{
-    --negro:#1e1e1e;
-    --dorado:#d4af37;
-    --dorado-2:#e2c55b;
-    --blanco:#ffffff;
-    --beige:#faf6f0;
-    --gris:#6b7280;
-    --gris-claro:#f5f5f5;
-    --radius:14px;
-    --shadow:0 14px 28px rgba(0,0,0,.12);
-    --shadow-soft:0 8px 18px rgba(0,0,0,.08);
-    --accent:#1e3a8a;
-  }
-  *{box-sizing:border-box}
-  html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--beige);color:var(--negro);scroll-behavior:smooth}
-  img{max-width:100%;display:block}
-  a{text-decoration:none;color:inherit}
+  <!-- Twitter -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:title" content="Spaciuz — Marketplace de Eventos" />
+  <meta name="twitter:description" content="Encuentra el espacio perfecto y reserva con contratos claros." />
 
-  /* ================= HEADER (HU-01) ================= */
-  header{
-    position:fixed; top:0; left:0; right:0; z-index:1200;
-    background: linear-gradient(90deg, rgba(250,246,240,.98), rgba(245,240,233,.98));
-    border-bottom:1px solid rgba(0,0,0,0.05);
-    backdrop-filter: blur(6px) saturate(120%);
-    box-shadow: var(--shadow-soft);
-  }
-  .nav{
-    max-width:1200px; margin:auto; display:flex; align-items:center; justify-content:space-between; gap:16px; padding:12px 18px;
-  }
-  .logo-wrap{display:flex; align-items:center; gap:12px}
-  .logo-wrap img{height:44px}
-  .brand{font-weight:800; color:var(--negro); letter-spacing:.2px}
-  nav ul{list-style:none; display:flex; gap:22px; margin:0; padding:0; align-items:center}
-  nav a{color:var(--negro); font-weight:700; padding:8px 10px; border-radius:8px; transition:all .18s}
-  nav a:hover{background:linear-gradient(90deg, rgba(212,175,55,.09), rgba(226,197,91,.08)); color:var(--negro)}
-  .hamb{display:none; font-size:26px; cursor:pointer; color:var(--negro)}
+  <!-- Fonts & Favicon -->
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
+  <link rel="icon" href="https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg" type="image/svg+xml">
 
-  @media(max-width:900px){
-    nav ul{display:none; position:fixed; right:16px; top:64px; background:var(--blanco); padding:14px; border-radius:12px; box-shadow:var(--shadow); flex-direction:column; min-width:200px}
-    nav ul.show{display:flex}
-    .hamb{display:block}
-  }
+  <!-- Manifest (PWA básico) -->
+  <link rel="manifest" href="data:application/manifest+json,{\n  \"name\":\"Spaciuz\",\n  \"short_name\":\"Spaciuz\",\n  \"start_url\":\"./\",\n  \"background_color\":\"#111111\",\n  \"theme_color\":\"#111111\",\n  \"display\":\"standalone\",\n  \"icons\":[{\"src\":\"https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg\",\"sizes\":\"512x512\",\"type\":\"image/svg+xml\"}]\n}">
 
-  /* anchor offset for fixed header */
-  section{scroll-margin-top:88px}
+  <style>
+    /* ==========================================================
+       TOKENS & BASE
+       ========================================================== */
+    :root{
+      --negro:#111111; --blanco:#ffffff; --beige:#faf6f0; --gris:#6b7280; --gris2:#9ca3af; --gris-claro:#f3f4f6;
+      --dorado:#d4af37; --dorado-2:#e2c55b; --accent:#1e3a8a; --accent-2:#1450b6; --ok:#16a34a; --warn:#f59e0b; --danger:#dc2626;
+      --radius:14px; --radius-sm:10px; --radius-lg:22px; --shadow:0 14px 28px rgba(0,0,0,.12); --shadow-soft:0 8px 18px rgba(0,0,0,.08);
+      --maxw:1200px; --gap:18px; --gap-lg:24px; --gap-sm:12px; --fw-900:900; --fw-800:800; --fw-700:700; --fw-600:600;
+    }
+    *{box-sizing:border-box}
+    html,body{margin:0;padding:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--beige);color:var(--negro);scroll-behavior:smooth}
+    img{max-width:100%;display:block}
+    a{color:inherit;text-decoration:none}
+    button{font-family:inherit}
+    ::selection{background:rgba(212,175,55,.35)}
 
-  /* ================= HERO / BANNER (HU-02) ================= */
-  .hero{
-    margin-top:64px; /* leave space for header */
-    background:
-      linear-gradient(120deg, rgba(30,30,30,.60), rgba(212,175,55,.12)),
-      url('https://images.unsplash.com/photo-1560185127-6ed189bf02f4?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;
-    color:var(--blanco);
-    min-height:68vh; display:grid; place-items:center; text-align:center; padding:72px 18px;
-  }
-  .hero-inner{max-width:1000px}
-  .kicker{
-    display:inline-block; padding:6px 12px; border-radius:999px;
-    border:1px solid rgba(255,255,255,.14); color:#fff; background:rgba(0,0,0,.18);
-    margin-bottom:12px; font-weight:700; font-size:.9rem;
-  }
-  .hero h1{font-size:clamp(30px,5vw,52px); line-height:1.05; margin:8px 0 12px; font-weight:800}
-  .hero p{font-size:clamp(15px,1.6vw,18px); opacity:.95; margin:0 auto 22px; max-width:760px}
-  .cta{
-    display:inline-flex; align-items:center; gap:10px;
-    padding:12px 20px; border-radius:12px; font-weight:800;
-    color:var(--negro); background:linear-gradient(90deg,var(--dorado),var(--dorado-2));
-    box-shadow:0 12px 22px rgba(212,175,55,.18); transition:transform .18s, box-shadow .18s;
-  }
-  .cta:hover{transform:translateY(-3px)}
+    /* ==========================================================
+       UTILIDADES
+       ========================================================== */
+    .container{max-width:var(--maxw);margin:auto;padding:0 18px}
+    .grid{display:grid;gap:var(--gap)}
+    .grid-2{grid-template-columns:repeat(2,1fr)}
+    .grid-3{grid-template-columns:repeat(3,1fr)}
+    .grid-4{grid-template-columns:repeat(4,1fr)}
+    .grid-auto{grid-template-columns:repeat(auto-fill,minmax(260px,1fr))}
+    .align-center{align-items:center}
+    .justify-between{justify-content:space-between}
+    .mt-0{margin-top:0}.mt-8{margin-top:8px}.mt-12{margin-top:12px}.mt-16{margin-top:16px}.mt-24{margin-top:24px}.mt-32{margin-top:32px}.mt-48{margin-top:48px}.mt-64{margin-top:64px}
+    .mb-0{margin-bottom:0}.mb-8{margin-bottom:8px}.mb-12{margin-bottom:12px}.mb-16{margin-bottom:16px}.mb-24{margin-bottom:24px}.mb-32{margin-bottom:32px}
+    .p-8{padding:8px}.p-12{padding:12px}.p-16{padding:16px}.p-20{padding:20px}.p-24{padding:24px}
+    .text-center{text-align:center}
+    .text-muted{color:var(--gris)}
+    .chip{display:inline-flex;align-items:center;gap:8px;padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.06);background:linear-gradient(90deg, rgba(212,175,55,.10), rgba(226,197,91,.12));font-weight:700;font-size:.85rem}
+    .badge{display:inline-block;padding:4px 8px;border-radius:8px;background:#111;color:#fff;font-size:.75rem}
+    .pill{border-radius:999px;border:1px solid #e6e6e6;padding:8px 12px}
+    .tag{padding:6px 10px;border-radius:8px;background:var(--gris-claro);font-weight:700;color:#222;font-size:.85rem}
+    .hide{display:none!important}
 
-  /* ================= SECCIONES ================= */
-  section{padding:72px 18px}
-  .container{max-width:1200px;margin:auto}
-  .title{ text-align:center; margin:0 auto 36px; max-width:860px}
-  .title h2{font-size:clamp(24px,3vw,32px); margin:0 0 8px}
-  .title p{color:var(--gris); margin:0}
+    /* ==========================================================
+       CABECERA (HEADER)
+       ========================================================== */
+    header{position:fixed;top:0;left:0;right:0;z-index:1200;background:linear-gradient(90deg, rgba(250,246,240,.98), rgba(245,240,233,.98));border-bottom:1px solid rgba(0,0,0,0.05);backdrop-filter: blur(6px) saturate(120%);box-shadow: var(--shadow-soft)}
+    .nav{max-width:var(--maxw);margin:auto;padding:12px 18px;display:flex;align-items:center;gap:16px;justify-content:space-between}
+    .brand{display:flex;align-items:center;gap:12px}
+    .brand img{height:44px}
+    .nav a.primary{font-weight:800;padding:10px 14px;border-radius:10px;background:linear-gradient(90deg,var(--dorado),var(--dorado-2));color:#000;box-shadow:0 12px 22px rgba(212,175,55,.18)}
+    .nav-links{list-style:none;display:flex;gap:22px;margin:0;padding:0}
+    .nav-links a{font-weight:700;padding:8px 10px;border-radius:8px}
+    .nav-links a:hover{background:rgba(212,175,55,.10)}
+    .hamb{display:none;font-size:26px;cursor:pointer}
+    @media(max-width:900px){.nav-links{display:none;position:fixed;right:16px;top:64px;background:var(--blanco);padding:14px;border-radius:12px;box-shadow:var(--shadow);flex-direction:column;min-width:220px}.nav-links.show{display:flex}.hamb{display:block}}
 
-  /* ================= SERVICIOS (HU-03) ================= */
-  .services-wrap{position:relative}
-  .grid-desktop{display:grid; gap:20px; grid-template-columns:repeat(3,1fr)}
-  @media(max-width:960px){.grid-desktop{display:none}}
-  .scroller{
-    display:grid; grid-auto-flow:column; grid-auto-columns:minmax(260px,1fr); gap:18px;
-    overflow-x:auto; padding-bottom:8px; scroll-snap-type:x mandatory;
-  }
-  .scroller::-webkit-scrollbar{height:10px}
-  .scroller::-webkit-scrollbar-thumb{background:rgba(30,30,30,.18); border-radius:999px}
-  .svc-card{
-    background:var(--blanco); border-radius:var(--radius); padding:14px; box-shadow:var(--shadow-soft); scroll-snap-align:start;
-    display:flex; flex-direction:column; gap:12px; transition:transform .18s, box-shadow .18s;
-  }
-  .svc-card:hover{transform:translateY(-6px); box-shadow:var(--shadow)}
-  .svc-media{height:150px; border-radius:12px; overflow:hidden; position:relative}
-  .svc-media img{width:100%;height:100%;object-fit:cover}
-  .svc-badge{position:absolute; top:10px; left:10px; padding:6px 10px; border-radius:999px; background:rgba(255,255,255,.92); color:#111; font-weight:800; font-size:.82rem; border:1px solid rgba(212,175,55,.45)}
-  .svc-head{display:flex; align-items:center; gap:12px}
-  .svc-icon{width:46px;height:46px;border-radius:12px;display:grid;place-items:center;background:linear-gradient(135deg,#fff,#f6f6f6);border:1px solid rgba(0,0,0,.05)}
-  .svc-icon svg{width:24px;height:24px;fill:var(--negro)}
-  .svc-title{font-weight:800}
-  .svc-desc{color:var(--gris)}
-  .svc-meta{display:flex;gap:8px;flex-wrap:wrap;margin-top:8px}
-  .chip{padding:6px 10px;border-radius:999px;border:1px solid rgba(0,0,0,.06);background:linear-gradient(90deg, rgba(212,175,55,.10), rgba(226,197,91,.12)); font-weight:700; font-size:.85rem}
-  .btn-more{margin-top:8px;padding:10px;border-radius:10px;border:none;background:linear-gradient(90deg,var(--dorado),var(--dorado-2));font-weight:800;cursor:pointer;color:var(--negro)}
+    /* ==========================================================
+       HERO
+       ========================================================== */
+    section{scroll-margin-top:88px}
+    .hero{margin-top:64px;background:linear-gradient(120deg, rgba(30,30,30,.64), rgba(212,175,55,.18)), url('https://images.unsplash.com/photo-1529634892263-34c57c2b2a9b?q=80&w=1920&auto=format&fit=crop') center/cover no-repeat;color:#fff;min-height:70vh;display:grid;place-items:center;text-align:center;padding:72px 18px}
+    .hero-inner{max-width:980px}
+    .kicker{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.18);background:rgba(0,0,0,.25);font-weight:800;margin-bottom:10px}
+    .hero h1{font-size:clamp(30px,5vw,56px);line-height:1.05;margin:8px 0 12px;font-weight:800}
+    .hero p{font-size:clamp(15px,1.6vw,18px);opacity:.95;margin:0 auto 22px;max-width:760px}
+    .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;font-weight:800;color:#111;background:linear-gradient(90deg,var(--dorado),var(--dorado-2));box-shadow:0 12px 22px rgba(212,175,55,.18);transition:.18s transform}
+    .cta:hover{transform:translateY(-3px)}
 
-  /* ================= TESTIMONIOS (carrusel) ================= */
-  .testimonials-wrap{max-width:1100px;margin:auto}
-  .carousel { position:relative; overflow:hidden; border-radius:12px; }
-  .carousel-track{ display:flex; transition:transform .45s ease-in-out; }
-  .slide{ min-width:100%; box-sizing:border-box; padding:34px; background:var(--blanco); box-shadow:var(--shadow-soft) }
-  .slide .t-head{display:flex; align-items:center; gap:18px; margin-bottom:12px}
-  .slide .t-head img{width:80px;height:80px;border-radius:50%;object-fit:cover}
-  .slide .t-name{font-weight:800; font-size:1.05rem}
-  .slide blockquote{margin:12px 0 0; font-style:italic; color:var(--gris); font-size:clamp(16px,2vw,20px)}
-  .carousel-controls{ position:absolute; top:50%; left:0; right:0; transform:translateY(-50%); display:flex; justify-content:space-between; pointer-events:none; padding:0 8px }
-  .carousel-controls button{ pointer-events:auto; background:rgba(0,0,0,.5); color:#fff; border:none; padding:10px 12px; border-radius:999px; cursor:pointer }
-  .dots{display:flex; gap:8px; justify-content:center; margin-top:14px}
-  .dot{width:12px;height:12px;border-radius:999px;background:rgba(0,0,0,.15);cursor:pointer}
-  .dot.active{background:var(--dorado)}
+    /* ==========================================================
+       FILTROS (BARRA)
+       ========================================================== */
+    .filters{background:var(--blanco);border:1px solid #eee;border-radius:var(--radius);box-shadow:var(--shadow-soft);padding:14px;display:grid;gap:12px;grid-template-columns:repeat(6,1fr)}
+    .filters .field{display:flex;flex-direction:column;gap:6px}
+    .filters label{font-weight:800;font-size:.9rem}
+    .filters input,.filters select{padding:10px;border:1px solid #e6e6e6;border-radius:10px}
+    .filters .actions{display:flex;gap:8px;align-items:end}
+    .btn{padding:10px 14px;border:none;border-radius:10px;cursor:pointer;font-weight:800}
+    .btn-primary{background:linear-gradient(90deg,var(--accent),var(--accent-2));color:#fff}
+    .btn-secondary{background:var(--gris-claro)}
+    .btn-ghost{background:transparent;border:1px dashed #ddd}
+    @media(max-width:1100px){.filters{grid-template-columns:repeat(3,1fr)}}
+    @media(max-width:700px){.filters{grid-template-columns:1fr}}
 
-  /* ================= FORMULARIO (HU-05) ================= */
-  form{ background:var(--blanco); border-radius:var(--radius); box-shadow:var(--shadow-soft); padding:20px; display:grid; gap:14px; max-width:920px; margin:auto }
-  .grid-2{ display:grid; gap:12px; grid-template-columns:repeat(2,1fr) }
-  @media(max-width:680px){ .grid-2{ grid-template-columns:1fr } }
-  label{ font-weight:700; font-size:.95rem }
-  input, select, textarea{ padding:12px; border-radius:10px; border:1px solid #e6e6e6; font-size:1rem }
-  textarea{ min-height:120px; }
-  .required::after{ content: " *"; color:#b91c1c }
-  .btn-submit{ padding:14px; border:none; border-radius:12px; cursor:pointer; font-weight:800; background:linear-gradient(90deg,var(--negro),#2b2b2b); color:#fff; font-size:1.03rem }
-  .btn-submit:hover{ transform:translateY(-2px) }
+    /* ==========================================================
+       LISTADO DE ESPACIOS
+       ========================================================== */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
+    @media(max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.cards{grid-template-columns:1fr}}
+    .card{background:var(--blanco);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow-soft);display:flex;flex-direction:column;transition:.2s transform}
+    .card:hover{transform:translateY(-6px)}
+    .card-img{position:relative;height:200px;overflow:hidden}
+    .card-img img{width:100%;height:100%;object-fit:cover}
+    .card-badge{position:absolute;top:10px;left:10px;border-radius:999px;padding:6px 10px;background:rgba(255,255,255,.95);font-weight:800;border:1px solid rgba(212,175,55,.45)}
+    .fav-btn{position:absolute;top:10px;right:10px;border:none;background:rgba(0,0,0,.5);color:#fff;border-radius:999px;padding:8px;cursor:pointer}
+    .card-body{padding:14px;display:flex;flex-direction:column;gap:10px}
+    .card-title{display:flex;gap:10px;align-items:center;justify-content:space-between}
+    .stars{color:#f59e0b;font-weight:800}
+    .meta{display:flex;gap:8px;flex-wrap:wrap}
+    .meta .mini{font-size:.86rem;color:var(--gris)}
+    .card-actions{display:flex;gap:8px;flex-wrap:wrap}
 
-  /* ================= MODAL ================= */
-  .modal { display:none; position:fixed; inset:0; z-index:2000; background:rgba(0,0,0,.5); align-items:center; justify-content:center; padding:20px }
-  .modal.open{ display:flex }
-  .modal-card{ background:var(--blanco); border-radius:12px; max-width:920px; width:100%; box-shadow:var(--shadow); overflow:hidden; display:grid; grid-template-columns:1fr 420px; min-height:300px }
-  @media(max-width:920px){ .modal-card{ grid-template-columns:1fr } }
-  .modal-media img{ width:100%; height:100%; object-fit:cover }
-  .modal-body{ padding:20px; display:flex; flex-direction:column; gap:12px }
-  .modal-close{ margin-left:auto; background:transparent; border:none; font-size:22px; cursor:pointer }
+    /* ==========================================================
+       MODAL (DETALLES / RESERVA)
+       ========================================================== */
+    .modal{display:none;position:fixed;inset:0;z-index:2000;background:rgba(0,0,0,.55);align-items:center;justify-content:center;padding:20px}
+    .modal.open{display:flex}
+    .modal-card{background:var(--blanco);max-width:1100px;width:100%;border-radius:14px;overflow:hidden;box-shadow:var(--shadow);display:grid;grid-template-columns:1fr 420px}
+    @media(max-width:1000px){.modal-card{grid-template-columns:1fr}}
+    .modal-media{height:100%;min-height:300px}
+    .modal-media img{width:100%;height:100%;object-fit:cover}
+    .modal-body{padding:18px;display:flex;flex-direction:column;gap:12px}
+    .modal-close{margin-left:auto;border:none;background:transparent;font-size:24px;cursor:pointer}
+    .modal-price{font-weight:900;background:linear-gradient(90deg, rgba(212,175,55,.08), rgba(226,197,91,.10));padding:6px 10px;border-radius:10px;display:inline-block}
+    .rules{background:linear-gradient(180deg,#fafafa,#fff);border:1px dashed #e5e7eb;border-radius:10px;padding:10px 12px}
 
-  .modal-price{ font-weight:900; color:var(--negro); background:linear-gradient(90deg, rgba(212,175,55,.06), rgba(226,197,91,.08)); padding:6px 10px; border-radius:8px; display:inline-block }
+    /* ==========================================================
+       TESTIMONIOS
+       ========================================================== */
+    .carousel{position:relative;overflow:hidden;border-radius:12px;box-shadow:var(--shadow-soft);background:#fff}
+    .carousel-track{display:flex;transition:transform .45s ease}
+    .slide{min-width:100%;padding:28px}
+    .slide .t-head{display:flex;gap:12px;align-items:center}
+    .slide .t-head img{width:70px;height:70px;border-radius:50%;object-fit:cover}
 
-  /* ================= UTILS/ANIM ================= */
-  .fade{ opacity:0; transform:translateY(18px); transition:all .6s ease-out }
-  .fade.show{ opacity:1; transform:none }
-  .zoom{ opacity:0; transform:scale(.98); transition:all .6s ease-out }
-  .zoom.show{ opacity:1; transform:scale(1) }
-  footer{ background:#111; color:#eee; text-align:center; padding:28px 12px; margin-top:36px }
-  /* small responsive tweaks */
-  @media (max-width:520px){
-    .cta{ padding:10px 14px; font-size:.95rem }
-    .hero h1{ font-size:28px }
-  }
-</style>
+    /* ==========================================================
+       FAQ & FOOTER
+       ========================================================== */
+    .accordion{background:#fff;border:1px solid #eee;border-radius:12px;overflow:hidden}
+    .acc-item{border-top:1px solid #eee}
+    .acc-item:first-child{border-top:none}
+    .acc-btn{width:100%;text-align:left;padding:14px 16px;border:none;background:#fff;font-weight:800;cursor:pointer}
+    .acc-panel{display:none;padding:0 16px 16px;color:var(--gris)}
+    .acc-item.open .acc-panel{display:block}
+    footer{background:#111;color:#eee;text-align:center;padding:28px 12px;margin-top:36px}
+
+    /* ==========================================================
+       ACCESIBILIDAD / ANIM
+       ========================================================== */
+    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
+    .fade{opacity:0;transform:translateY(18px);transition:all .6s ease-out}
+    .fade.show{opacity:1;transform:none}
+    .zoom{opacity:0;transform:scale(.98);transition:all .6s ease-out}
+    .zoom.show{opacity:1;transform:scale(1)}
+
+    /* ==========================================================
+       BANNERS & TOASTS
+       ========================================================== */
+    .cookie{position:fixed;left:50%;transform:translateX(-50%);bottom:18px;background:#111;color:#fff;border-radius:12px;padding:12px 14px;box-shadow:var(--shadow);z-index:3000;display:flex;gap:12px;align-items:center}
+    .toast{position:fixed;right:18px;bottom:18px;background:rgba(30,30,30,.95);color:#fff;padding:12px 16px;border-radius:10px;display:none;z-index:2500;box-shadow:var(--shadow)}
+  </style>
 </head>
 <body>
-
-<header>
-  <div class="nav">
-    <a href="#inicio" class="logo-wrap">
-      <img src="https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg" alt="Spaciuz logo">
-      <span class="brand"></span>
-    </a>
-
-    <div class="hamb" id="hamb" aria-label="Abrir menú" role="button" tabindex="0">☰</div>
-
-    <nav>
-      <ul id="menu">
-        <li><a href="#servicios">Servicios</a></li>
-        <li><a href="#testimonios">Testimonios</a></li>
-        <li><a href="#contacto">Contáctanos</a></li>
-      </ul>
-    </nav>
-  </div>
-</header>
-
-<!-- HERO -->
-<section class="hero" id="inicio" role="region" aria-label="Banner principal">
-  <div class="hero-inner fade">
-    <div class="kicker">Alquiler fácil, seguro y transparente</div>
-    <h1>Encuentra tu lugar ideal en Perú</h1>
-    <p>Explora casas y departamentos verificados, programa visitas y firma con contratos claros. Nosotros te acompañamos en todo el proceso.</p>
-    <a class="cta" href="#contacto">Quiero que me contacten</a>
-  </div>
-</section>
-
-<!-- SERVICIOS -->
-<section id="servicios" aria-label="Servicios">
-  <div class="container">
-    <div class="title fade">
-      <h2>Servicios pensados para ti</h2>
-      <p>Soluciones completas para alquilar con confianza y sin complicaciones.</p>
+  <a href="#contenido" class="sr-only">Saltar al contenido</a>
+  <header>
+    <div class="nav">
+      <a class="brand" href="#inicio" aria-label="Inicio Spaciuz">
+        <img src="https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg" alt="Spaciuz"/>
+        <strong>Spaciuz</strong>
+      </a>
+      <div class="hamb" id="hamb" aria-label="Abrir menú" role="button" tabindex="0">☰</div>
+      <nav>
+        <ul class="nav-links" id="menu">
+          <li><a href="#explorar">Explorar</a></li>
+          <li><a href="#testimonios">Testimonios</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#anfitrion">Publica tu espacio</a></li>
+          <li><a href="#contacto" class="primary">Reservar</a></li>
+        </ul>
+      </nav>
     </div>
+  </header>
 
-    <div class="services-wrap">
-      <!-- Desktop grid -->
-      <div class="grid-desktop">
-        <!-- Alquiler de Casas -->
-        <article class="svc-card zoom" data-service="alquiler" data-img="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1400&auto=format&fit=crop">
-          <div class="svc-media">
-            <img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1200&auto=format&fit=crop" alt="Casa en alquiler">
-            <span class="svc-badge">Desde S/ 1,200</span>
-          </div>
-          <div class="svc-head">
-            <div class="svc-icon" aria-hidden="true"><svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg></div>
-            <div class="svc-title">Alquiler de Casas</div>
-          </div>
-          <p class="svc-desc">Ubicaciones top y soporte constante.</p>
-          <div class="svc-meta"><span class="chip">Pet-friendly</span><span class="chip">Listas para habitar</span></div>
-          <button class="btn-more" data-service="alquiler">Ver más</button>
-        </article>
+  <!-- ================= HERO ================= -->
+  <section class="hero" id="inicio" role="region" aria-label="Banner principal">
+    <div class="hero-inner fade">
+      <div class="kicker">Contratos claros · Visitas agendadas · Acompañamiento total</div>
+      <h1>Encuentra el espacio perfecto para tu celebración</h1>
+      <p>Locales verificados para cumpleaños, baby showers, bodas pequeñas y reuniones corporativas. Reserva fácil, seguro y con soporte en cada paso.</p>
+      <a class="cta" href="#explorar">Buscar espacios</a>
+    </div>
+  </section>
 
-        <!-- Departamentos -->
-        <article class="svc-card zoom" data-service="departamentos" data-img="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop">
-          <div class="svc-media">
-            <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="Departamento moderno">
-            <span class="svc-badge">Desde S/ 900</span>
-          </div>
-          <div class="svc-head">
-            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 21V3h18v18H3zm4-2h10v-2H7v2zm0-4h10v-2H7v2zm0-4h10V9H7v2z"/></svg></div>
-            <div class="svc-title">Departamentos</div>
-          </div>
-          <p class="svc-desc">Amoblados y bien ubicados.</p>
-          <div class="svc-meta"><span class="chip">Wifi incluido</span><span class="chip">Vistas increíbles</span></div>
-          <button class="btn-more" data-service="departamentos">Ver más</button>
-        </article>
-
-        <!-- Asesoría -->
-        <article class="svc-card zoom" data-service="asesoria" data-img="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1400&auto=format&fit=crop">
-          <div class="svc-media">
-            <img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="Asesoría inmobiliaria">
-            <span class="svc-badge">Sin costo</span>
-          </div>
-          <div class="svc-head">
-            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.2 0 4-1.8 4-4S14.2 4 12 4 8 5.8 8 8s1.8 4 4 4zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg></div>
-            <div class="svc-title">Asesoría Personalizada</div>
-          </div>
-          <p class="svc-desc">Acompañamiento total.</p>
-          <div class="svc-meta"><span class="chip">Atención 24/7</span><span class="chip">Multicanal</span></div>
-          <button class="btn-more" data-service="asesoria">Ver más</button>
-        </article>
-
-        <!-- Administración -->
-        <article class="svc-card zoom" data-service="administracion" data-img="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1400&auto=format&fit=crop">
-          <div class="svc-media">
-            <img src="https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1200&auto=format&fit=crop" alt="Administración">
-            <span class="svc-badge">Para propietarios</span>
-          </div>
-          <div class="svc-head">
-            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 4h16v12H4V4zm0 14h16v2H4v-2zM7 7h5v6H7V7z"/></svg></div>
-            <div class="svc-title">Administración de Propiedades</div>
-          </div>
-          <p class="svc-desc">Cobranzas, mantenimiento y reportes: todo en un solo lugar.</p>
-          <div class="svc-meta"><span class="chip">Reportes mensuales</span><span class="chip">Mantenimiento</span></div>
-          <button class="btn-more" data-service="administracion">Ver más</button>
-        </article>
-
-        <!-- Foto & Video -->
-        <article class="svc-card zoom" data-service="fotovid" data-img="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=1400&auto=format&fit=crop">
-          <div class="svc-media">
-            <img src="https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=1200&auto=format&fit=crop" alt="Foto y video">
-            <span class="svc-badge">+ Visitas</span>
-          </div>
-          <div class="svc-head">
-            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M4 5h16v14H4V5zm8 12a5 5 0 100-10 5 5 0 000 10z"/></svg></div>
-            <div class="svc-title">Foto & Video Pro</div>
-          </div>
-          <p class="svc-desc">Anuncios que destacan con fotografía profesional y recorridos 360°.</p>
-          <div class="svc-meta"><span class="chip">HDR</span><span class="chip">Tour 360°</span></div>
-          <button class="btn-more" data-service="fotovid">Ver más</button>
-        </article>
-
-        <!-- Legal -->
-        <article class="svc-card zoom" data-service="legal" data-img="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop">
-          <div class="svc-media">
-            <img src="https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1200&auto=format&fit=crop" alt="Asesoría Legal">
-            <span class="svc-badge">Legal</span>
-          </div>
-          <div class="svc-head">
-            <div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 1l9 4v6c0 5-3.8 9.7-9 11-5.2-1.3-9-6-9-11V5l9-4zm0 6a3 3 0 100 6 3 3 0 000-6z"/></svg></div>
-            <div class="svc-title">Asesoría Legal</div>
-          </div>
-          <p class="svc-desc">Verificación de documentos, contratos y garantías para tu tranquilidad.</p>
-          <div class="svc-meta"><span class="chip">Revisión de cargas</span><span class="chip">Contratos</span></div>
-          <button class="btn-more" data-service="legal">Ver más</button>
-        </article>
+  <!-- ================= LISTADO + FILTROS ================= -->
+  <main id="contenido" class="container mt-32">
+    <section id="explorar" class="mt-32">
+      <div class="title text-center">
+        <h2 class="mt-0">Explora espacios verificados</h2>
+        <p class="text-muted">Filtra por ubicación, tipo, precio y aforo. Guarda favoritos y compara opciones.</p>
       </div>
 
-      <!-- Mobile scroller -->
-      <div class="scroller" aria-hidden="true">
-        <article class="svc-card" data-service="alquiler">
-          <div class="svc-media"><img src="https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1200&auto=format&fit=crop" alt="Casa" /><span class="svc-badge">Desde S/ 1,200</span></div>
-          <div class="svc-head"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 3l9 8h-3v9h-5v-6H11v6H6v-9H3l9-8z"/></svg></div><div class="svc-title">Alquiler de Casas</div></div>
-          <p class="svc-desc">Ubicaciones top y soporte constante.</p>
-          <button class="btn-more" data-service="alquiler">Ver más</button>
-        </article>
-        <article class="svc-card" data-service="departamentos">
-          <div class="svc-media"><img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1200&auto=format&fit=crop" alt="Depto" /><span class="svc-badge">Desde S/ 900</span></div>
-          <div class="svc-head"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M3 21V3h18v18H3zm4-2h10v-2H7v2zm0-4h10v-2H7v2zm0-4h10V9H7v2z"/></svg></div><div class="svc-title">Departamentos</div></div>
-          <p class="svc-desc">Amoblados y bien ubicados.</p>
-          <button class="btn-more" data-service="departamentos">Ver más</button>
-        </article>
-        <article class="svc-card" data-service="asesoria">
-          <div class="svc-media"><img src="https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1200&auto=format&fit=crop" alt="Asesoria" /><span class="svc-badge">Sin costo</span></div>
-          <div class="svc-head"><div class="svc-icon"><svg viewBox="0 0 24 24"><path d="M12 12c2.2 0 4-1.8 4-4S14.2 4 12 4 8 5.8 8 8s1.8 4 4 4zm0 2c-3.3 0-10 1.7-10 5v3h20v-3c0-3.3-6.7-5-10-5z"/></svg></div><div class="svc-title">Asesoría</div></div>
-          <p class="svc-desc">Acompañamiento total.</p>
-          <button class="btn-more" data-service="asesoria">Ver más</button>
-        </article>
-      </div>
-    </div>
-  </div>
-</section>
-
-<!-- MODAL ÚNICO dinámico -->
-<div id="modal" class="modal" aria-hidden="true">
-  <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
-    <div class="modal-media" id="modalMedia"><img src="" alt=""></div>
-    <div class="modal-body">
-      <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
-      <h3 id="modalTitle"></h3>
-      <div style="display:flex;gap:12px;align-items:center;">
-        <div id="modalPrice" class="modal-price" aria-hidden="true"></div>
-        <div id="modalShort" style="color:var(--gris)"></div>
-      </div>
-      <p id="modalText" style="color:var(--gris)"></p>
-      <div id="modalDetails" style="color:var(--negro);line-height:1.45"></div>
-      <div id="modalChips" style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px"></div>
-      <div style="margin-top:auto;display:flex;gap:10px;flex-wrap:wrap">
-        <a class="cta" href="#contacto" id="modalContactBtn" style="text-decoration:none;display:inline-block">Contactar sobre este servicio</a>
-        <button id="modalVisitBtn" class="btn-more" style="background:linear-gradient(90deg,var(--accent),#1450b6);color:white">Reservar visita</button>
-      </div>
-    </div>
-  </div>
-</div>
-
-<!-- TESTIMONIOS (carrusel) -->
-<section id="testimonios">
-  <div class="container">
-    <div class="title fade">
-      <h2>Clientes satisfechos</h2>
-      <p>Historias reales de quienes ya encontraron su hogar con nosotros.</p>
-    </div>
-
-    <div class="testimonials-wrap">
-      <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Testimonios">
-        <div class="carousel-track" id="carouselTrack" role="list">
-          <div class="slide" role="listitem">
-            <div class="t-head"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María López"><div><div class="t-name">María López</div><div class="stars">★★★★★</div></div></div>
-            <blockquote>“En menos de una semana tenía las llaves. Trato humano y comunicación clara. El equipo me acompañó en cada paso y resolvieron todas mis dudas con rapidez.”</blockquote>
-          </div>
-          <div class="slide" role="listitem">
-            <div class="t-head"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="José Pérez"><div><div class="t-name">José Pérez</div><div class="stars">★★★★★</div></div></div>
-            <blockquote>“El proceso fue transparente de principio a fin. El contrato y la verificación legal estuvieron impecables. Recomendado 100%.”</blockquote>
-          </div>
-          <div class="slide" role="listitem">
-            <div class="t-head"><img src="https://randomuser.me/api/portraits/men/45.jpg" alt="Luis García"><div><div class="t-name">Luis Santisteban </div><div class="stars">★★★★★</div></div></div>
-            <blockquote>“Me ayudaron con la verificación legal y todo fue rápido y seguro. Las fotos y el tour 360 me dieron la confianza que necesitaba.”</blockquote>
-          </div>
-          <div class="slide" role="listitem">
-            <div class="t-head"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Andrea Castillo"><div><div class="t-name">Andrea Castillo</div><div class="stars">★★★★★</div></div></div>
-            <blockquote>“Fotos profesionales que realmente mostraban el inmueble. ¡Encontré depa en 4 días! Atención cercana y muy profesionales.”</blockquote>
-          </div>
+      <!-- Filtros -->
+      <div class="filters" role="search" aria-label="Filtros de búsqueda">
+        <div class="field">
+          <label for="buscar">Buscar</label>
+          <input id="buscar" type="text" placeholder="Ej: rooftop, jardín, Miraflores…" />
         </div>
-
-        <div class="carousel-controls" aria-hidden="false">
-          <button class="prev" id="prevBtn" aria-label="Anterior">&#10094;</button>
-          <button class="next" id="nextBtn" aria-label="Siguiente">&#10095;</button>
+        <div class="field">
+          <label for="region">Región</label>
+          <select id="region"><option value="">Todas</option></select>
+        </div>
+        <div class="field">
+          <label for="provincia">Provincia</label>
+          <select id="provincia" disabled><option value="">Todas</option></select>
+        </div>
+        <div class="field">
+          <label for="distrito">Distrito</label>
+          <select id="distrito" disabled><option value="">Todos</option></select>
+        </div>
+        <div class="field">
+          <label for="tipo">Tipo</label>
+          <select id="tipo">
+            <option value="">Todos</option>
+            <option>Salón</option>
+            <option>Casa de campo</option>
+            <option>Rooftop/Terraza</option>
+            <option>Auditorio/Corporativo</option>
+            <option>Jardín/Quinta</option>
+            <option>Local multiuso</option>
+          </select>
+        </div>
+        <div class="field">
+          <label for="aforo">Aforo (mín.)</label>
+          <input id="aforo" type="number" min="1" step="1" placeholder="Ej. 80" />
+        </div>
+        <div class="field">
+          <label for="precioMax">Precio máximo (S/)</label>
+          <input id="precioMax" type="number" min="0" step="50" placeholder="Ej. 1500" />
+        </div>
+        <div class="field">
+          <label for="orden">Ordenar por</label>
+          <select id="orden">
+            <option value="relevancia">Relevancia</option>
+            <option value="precioAsc">Precio ↑</option>
+            <option value="precioDesc">Precio ↓</option>
+            <option value="ratingDesc">Mejor calificados</option>
+            <option value="aforoDesc">Mayor aforo</option>
+          </select>
+        </div>
+        <div class="actions">
+          <button class="btn btn-secondary" id="btnLimpiar">Limpiar</button>
+          <button class="btn btn-primary" id="btnAplicar">Aplicar</button>
         </div>
       </div>
 
-      <div class="dots" id="dots" aria-hidden="false"></div>
+      <!-- Estado / Resultados -->
+      <div class="mt-12 text-muted" id="estado"></div>
+
+      <!-- Cards -->
+      <div id="lista" class="cards mt-16" aria-live="polite"></div>
+
+      <!-- Paginación simple -->
+      <div class="mt-16 text-center">
+        <button class="btn btn-ghost" id="btnMas">Cargar más</button>
+      </div>
+
+      <!-- Favoritos / Comparador -->
+      <div class="mt-24">
+        <h3 class="mt-0">Favoritos</h3>
+        <div id="favoritos" class="grid grid-auto"></div>
+        <div class="mt-12">
+          <button class="btn btn-primary" id="btnComparar">Comparar seleccionados</button>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <!-- ================= MODAL DETALLES ================= -->
+  <div id="modal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="modalTitle">
+      <div class="modal-media" id="modalMedia"><img src="" alt=""></div>
+      <div class="modal-body">
+        <button class="modal-close" id="modalClose" aria-label="Cerrar">&times;</button>
+        <h3 id="modalTitle" class="mt-0"></h3>
+        <div class="mt-8" style="display:flex;gap:10px;flex-wrap:wrap;align-items:center">
+          <div id="modalPrice" class="modal-price" aria-hidden="true"></div>
+          <div id="modalShort" class="text-muted"></div>
+        </div>
+        <div id="modalChips" class="mt-8" style="display:flex;gap:8px;flex-wrap:wrap"></div>
+        <p id="modalText" class="text-muted"></p>
+        <div id="modalDetails"></div>
+        <div class="rules mt-8" id="modalRules"></div>
+        <div class="mt-12" style="display:flex;gap:8px;flex-wrap:wrap">
+          <a class="cta" href="#contacto" id="modalContactBtn">Solicitar cotización</a>
+          <button id="modalVisitBtn" class="btn btn-primary">Reservar fecha</button>
+          <button id="modalContratoBtn" class="btn btn-secondary">Ver contrato</button>
+        </div>
+      </div>
     </div>
   </div>
-</section>
 
-<!-- CONTACTO (formulario completo HU-05) -->
-<section id="contacto">
-  <div class="container">
-    <div class="title fade">
-      <h2>Contáctanos</h2>
-      <p>Cuéntanos qué buscas y te ayudamos hoy mismo.</p>
+  <!-- ================= CONTRATO (MODAL) ================= -->
+  <div id="contratoModal" class="modal" aria-hidden="true">
+    <div class="modal-card" role="dialog" aria-modal="true" aria-labelledby="contratoTitle" style="grid-template-columns:1fr">
+      <div class="modal-body">
+        <button class="modal-close" id="contratoClose" aria-label="Cerrar">&times;</button>
+        <h3 id="contratoTitle" class="mt-0">Contrato de Alquiler de Espacio para Eventos</h3>
+        <div id="contratoBody" class="text-muted" style="max-height:50vh;overflow:auto;border:1px solid #eee;border-radius:10px;padding:12px"></div>
+        <label class="mt-12" style="display:flex;gap:10px;align-items:center"><input type="checkbox" id="aceptoContrato"> <strong>Confirmo haber leído y acepto el contrato</strong></label>
+        <div class="mt-12" style="display:flex;gap:8px;flex-wrap:wrap">
+          <button class="btn btn-primary" id="firmarContrato">Firmar digitalmente</button>
+          <button class="btn" id="descargarContrato" style="border:1px dashed #ddd">Descargar (HTML)</button>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ================= TESTIMONIOS ================= -->
+  <section id="testimonios" class="container mt-64">
+    <div class="title text-center">
+      <h2 class="mt-0">Clientes felices</h2>
+      <p class="text-muted">Historias reales de celebraciones inolvidables.</p>
+    </div>
+    <div class="carousel" id="carousel" aria-roledescription="carousel" aria-label="Testimonios">
+      <div class="carousel-track" id="carouselTrack" role="list">
+        <div class="slide" role="listitem">
+          <div class="t-head"><img src="https://randomuser.me/api/portraits/women/44.jpg" alt="María López"><div><strong>María López</strong><div class="stars">★★★★★</div></div></div>
+          <blockquote>“Reservé un rooftop para mi cumpleaños y la vista fue espectacular. El contrato digital y el soporte hicieron todo súper fácil.”</blockquote>
+        </div>
+        <div class="slide" role="listitem">
+          <div class="t-head"><img src="https://randomuser.me/api/portraits/men/32.jpg" alt="José Pérez"><div><strong>José Pérez</strong><div class="stars">★★★★★</div></div></div>
+          <blockquote>“Hicimos un workshop con 60 personas en un auditorio impecable. Proyector, wifi y coffee break en un solo lugar.”</blockquote>
+        </div>
+        <div class="slide" role="listitem">
+          <div class="t-head"><img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Andrea Castillo"><div><strong>Andrea Castillo</strong><div class="stars">★★★★★</div></div></div>
+          <blockquote>“Agendamos visita y cerramos todo con contrato en 24h. Servicio A1.”</blockquote>
+        </div>
+      </div>
+      <div class="p-12" style="display:flex;gap:8px;justify-content:center">
+        <button class="btn btn-secondary" id="prevBtn">◀</button>
+        <button class="btn btn-secondary" id="nextBtn">▶</button>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= FAQ ================= -->
+  <section id="faq" class="container mt-64">
+    <div class="title text-center">
+      <h2 class="mt-0">Preguntas frecuentes</h2>
+      <p class="text-muted">Todo lo que necesitas saber antes de reservar.</p>
+    </div>
+    <div class="accordion" id="faqAcc">
+      <div class="acc-item open">
+        <button class="acc-btn">¿Cómo verifican los espacios?</button>
+        <div class="acc-panel">Todos los locales pasan revisión documental (RUC, propiedad/arrendamiento) y visita técnica. También auditamos reseñas y reportes de la comunidad.</div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">¿Puedo agendar una visita antes de pagar?</button>
+        <div class="acc-panel">Sí. Puedes solicitar una visita sin costo. Si te convence, firmas el contrato y realizas el pago seguro por nuestra pasarela.</div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">¿El contrato es flexible?</button>
+        <div class="acc-panel">Contamos con un contrato estándar con anexos configurables (horarios, penalidades, extras). Todo queda claro y firmado digitalmente.</div>
+      </div>
+      <div class="acc-item">
+        <button class="acc-btn">¿Qué pasa si el proveedor cancela?</button>
+        <div class="acc-panel">Aplican cláusulas de reembolso parcial/total según tiempo de aviso. Nuestro equipo media y reubica tu evento si lo deseas.</div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ================= ANFITRIÓN ================= -->
+  <section id="anfitrion" class="container mt-64">
+    <div class="title text-center">
+      <h2 class="mt-0">¿Tienes un espacio? Publícalo en Spaciuz</h2>
+      <p class="text-muted">Gana dinero alquilándolo para eventos verificados. Nosotros nos encargamos del contrato y soporte.</p>
+    </div>
+    <div class="grid grid-3">
+      <div class="card"><div class="card-body"><h3 class="mt-0">1. Registra tu local</h3><p class="text-muted">Sube fotos, capacidad, reglas y equipamiento. Sin costo de publicación.</p><span class="tag">5–10 min</span></div></div>
+      <div class="card"><div class="card-body"><h3 class="mt-0">2. Verificación</h3><p class="text-muted">Validamos documentos y realizamos visita técnica para garantizar confianza.</p><span class="tag">48–72 h</span></div></div>
+      <div class="card"><div class="card-body"><h3 class="mt-0">3. Empieza a recibir reservas</h3><p class="text-muted">Agenda visitas, firma digital y cobra por nuestra pasarela con soporte.</p><span class="tag">Contrato claro</span></div></div>
+    </div>
+  </section>
+
+  <!-- ================= CONTACTO / RESERVA ================= -->
+  <section id="contacto" class="container mt-64">
+    <div class="title text-center">
+      <h2 class="mt-0">Reserva tu espacio</h2>
+      <p class="text-muted">Cuéntanos tu evento y te conectamos con los mejores espacios verificados.</p>
     </div>
 
     <form id="contactForm" action="https://formspree.io/f/mvgqyzvo" method="POST" class="fade" novalidate>
-      <div class="grid-2">
+      <div class="grid grid-2">
         <div>
           <label class="required" for="apellidos">Apellidos</label>
           <input id="apellidos" name="apellidos" type="text" required />
@@ -410,7 +425,7 @@
         </div>
       </div>
 
-      <div class="grid-2">
+      <div class="grid grid-2 mt-12">
         <div>
           <label class="required" for="email">Correo electrónico</label>
           <input id="email" name="email" type="email" required />
@@ -421,419 +436,566 @@
         </div>
       </div>
 
-      <div class="grid-2">
+      <div class="grid grid-3 mt-12">
         <div>
-          <label class="required" for="region">Región</label>
-          <select id="region" name="region" required><option value="">Seleccione región</option></select>
+          <label class="required" for="regionForm">Región</label>
+          <select id="regionForm" name="region" required><option value="">Seleccione región</option></select>
         </div>
         <div>
-          <label class="required" for="provincia">Provincia</label>
-          <select id="provincia" name="provincia" required disabled><option value="">Seleccione provincia</option></select>
+          <label class="required" for="provinciaForm">Provincia</label>
+          <select id="provinciaForm" name="provincia" required disabled><option value="">Seleccione provincia</option></select>
+        </div>
+        <div>
+          <label class="required" for="distritoForm">Distrito</label>
+          <select id="distritoForm" name="distrito" required disabled><option value="">Seleccione distrito</option></select>
         </div>
       </div>
 
-      <div class="grid-2">
+      <div class="grid grid-3 mt-12">
         <div>
-          <label class="required" for="distrito">Distrito</label>
-          <select id="distrito" name="distrito" required disabled><option value="">Seleccione distrito</option></select>
-        </div>
-        <div>
-          <label class="required" for="tipo">Tipo de inmueble</label>
-          <select id="tipo" name="tipo" required>
+          <label class="required" for="tipo_espacio">Tipo de espacio</label>
+          <select id="tipo_espacio" name="tipo_espacio" required>
             <option value="">Seleccione tipo</option>
-            <option value="Casa">Casa</option>
-            <option value="Departamento">Departamento</option>
-            <option value="Mini-depa">Mini-depa</option>
-            <option value="Habitación">Habitación</option>
+            <option>Salón</option>
+            <option>Casa de campo</option>
+            <option>Rooftop/Terraza</option>
+            <option>Auditorio/Corporativo</option>
+            <option>Jardín/Quinta</option>
+            <option>Local multiuso</option>
           </select>
         </div>
+        <div>
+          <label class="required" for="tipo_evento">Tipo de evento</label>
+          <select id="tipo_evento" name="tipo_evento" required>
+            <option value="">Seleccione</option>
+            <option>Cumpleaños</option>
+            <option>Baby shower</option>
+            <option>Boda íntima</option>
+            <option>Reunión corporativa</option>
+            <option>Graduación</option>
+            <option>Otro</option>
+          </select>
+        </div>
+        <div>
+          <label class="required" for="asistentes">N.º de asistentes</label>
+          <input id="asistentes" name="asistentes" type="number" min="1" step="1" placeholder="Ej. 80" required />
+        </div>
       </div>
 
-      <div class="grid-2">
+      <div class="grid grid-3 mt-12">
+        <div>
+          <label class="required" for="fecha_evento">Fecha del evento</label>
+          <input id="fecha_evento" name="fecha_evento" type="date" required />
+        </div>
+        <div>
+          <label for="duracion">Duración (horas)</label>
+          <input id="duracion" name="duracion" type="number" min="1" step="1" placeholder="Ej. 5" />
+        </div>
         <div>
           <label for="presupuesto">Presupuesto aprox. (S/)</label>
-          <input id="presupuesto" name="presupuesto" type="number" min="0" step="100" placeholder="Ej. 1500" />
-        </div>
-        <div>
-          <label for="fecha">Fecha estimada de mudanza</label>
-          <input id="fecha" name="fecha" type="date" />
+          <input id="presupuesto" name="presupuesto" type="number" min="0" step="100" placeholder="Ej. 2500" />
         </div>
       </div>
 
-      <div>
+      <div class="mt-12">
+        <label>Servicios extra (opcional)</label>
+        <div class="p-8" style="display:flex;gap:10px;flex-wrap:wrap">
+          <label class="pill"><input type="checkbox" name="extras" value="Catering"> Catering</label>
+          <label class="pill"><input type="checkbox" name="extras" value="Decoración"> Decoración</label>
+          <label class="pill"><input type="checkbox" name="extras" value="DJ/Sonido"> DJ/Sonido</label>
+          <label class="pill"><input type="checkbox" name="extras" value="Foto/Video"> Foto/Video</label>
+          <label class="pill"><input type="checkbox" name="extras" value="Mobiliario"> Mobiliario</label>
+          <label class="pill"><input type="checkbox" name="extras" value="Animación"> Animación</label>
+        </div>
+      </div>
+
+      <div class="mt-12">
         <label class="required" for="mensaje">Mensaje</label>
-        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos zona, cuartos, si aceptas mascotas, etc." required></textarea>
+        <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos temática, música, si necesitas área infantil, accesibilidad, etc." required style="min-height:120px;padding:12px;border:1px solid #e6e6e6;border-radius:10px"></textarea>
       </div>
 
-      <button class="btn-submit" type="submit">Enviar solicitud</button>
+      <div class="mt-12" style="display:flex;gap:10px;align-items:center">
+        <label class="pill"><input type="checkbox" id="aceptoPoliticas" required> Acepto la <a href="#" id="verPoliticas">política de privacidad</a></label>
+      </div>
+
+      <button class="btn btn-primary mt-16" type="submit">Enviar solicitud</button>
     </form>
+  </section>
+
+  <footer>
+    <p>© 2025 Spaciuz. Marketplace de Espacios para Eventos. Todos los derechos reservados.</p>
+  </footer>
+
+  <!-- Banners -->
+  <div id="cookie" class="cookie" role="dialog" aria-live="polite" aria-label="Aviso de cookies" style="display:none">
+    <span>Usamos cookies para mejorar tu experiencia.</span>
+    <button class="btn btn-secondary" id="cookieOk">Aceptar</button>
   </div>
-</section>
+  <div id="toast" class="toast"></div>
 
-<footer>
-  <p>© 2025 Spaciuz. Todos los derechos reservados.</p>
-</footer>
+  <!-- ================= SCRIPTS ================= -->
+  <script>
+    /* ----------------------------------------------------------
+       MENU MÓVIL
+       ---------------------------------------------------------- */
+    const hamb = document.getElementById('hamb');
+    const menu = document.getElementById('menu');
+    hamb?.addEventListener('click', ()=> menu.classList.toggle('show'));
+    hamb?.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') menu.classList.toggle('show'); });
 
-<!-- Small toast for confirmations -->
-<div id="toast" style="position:fixed;right:18px;bottom:18px;background:rgba(30,30,30,.95);color:#fff;padding:12px 16px;border-radius:10px;display:none;z-index:2500;box-shadow:var(--shadow)"></div>
+    /* ----------------------------------------------------------
+       ANIMACIONES EN SCROLL
+       ---------------------------------------------------------- */
+    const reveal = (selector)=> {
+      const obs = new IntersectionObserver((entries)=>{
+        entries.forEach(e=>{
+          if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); }
+        });
+      },{threshold:0.18});
+      document.querySelectorAll(selector).forEach(el=>obs.observe(el));
+    };
+    reveal('.fade'); reveal('.zoom');
 
-<script>
-/* ================= MENU MÓVIL ================= */
-const hamb = document.getElementById('hamb');
-const menu = document.getElementById('menu');
-hamb?.addEventListener('click', ()=> menu.classList.toggle('show'));
-hamb?.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') menu.classList.toggle('show'); });
+    /* ----------------------------------------------------------
+       COOKIE BANNER & TOAST
+       ---------------------------------------------------------- */
+    const cookie = document.getElementById('cookie');
+    const cookieOk = document.getElementById('cookieOk');
+    const toast = document.getElementById('toast');
+    function showToast(msg){ toast.textContent = msg; toast.style.display = 'block'; setTimeout(()=> toast.style.display='none', 2600); }
+    if(!localStorage.getItem('cookieOk')){ cookie.style.display='flex'; }
+    cookieOk?.addEventListener('click',()=>{ localStorage.setItem('cookieOk','1'); cookie.style.display='none'; showToast('Preferencias guardadas'); });
 
-/* ================= SCROLL ANIMATIONS ================= */
-const reveal = (selector)=> {
-  const obs = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){ e.target.classList.add('show'); obs.unobserve(e.target); }
-    });
-  },{threshold:0.18});
-  document.querySelectorAll(selector).forEach(el=>obs.observe(el));
-};
-reveal('.fade'); reveal('.zoom');
-
-/* ================= MODAL SERVICIOS ================= */
-const modal = document.getElementById('modal');
-const modalTitle = document.getElementById('modalTitle');
-const modalText = document.getElementById('modalText');
-const modalMedia = document.getElementById('modalMedia');
-const modalChips = document.getElementById('modalChips');
-const modalContactBtn = document.getElementById('modalContactBtn');
-const modalClose = document.getElementById('modalClose');
-const modalPrice = document.getElementById('modalPrice');
-const modalShort = document.getElementById('modalShort');
-const modalDetails = document.getElementById('modalDetails');
-const modalVisitBtn = document.getElementById('modalVisitBtn');
-
-/* Services data (complete, used by modal) */
-const servicesData = {
-  'alquiler': {
-    title: 'Alquiler de Casas',
-    img: 'https://images.unsplash.com/photo-1572120360610-d971b9d7767c?q=80&w=1400&auto=format&fit=crop',
-    price: 'Desde S/ 1,200',
-    text: 'Ubicaciones top y soporte constante.',
-    long: '<strong>Descripción extendida:</strong> Selección de casas en distritos residenciales y familiares, con seguridad, parqueo y mantenimiento. Contratos transparentes y acompañamiento en todo el proceso.',
-    chips: ['Pet-friendly','Listas para habitar','Visitas programadas'],
-    features: ['Seguridad 24/7','Mantenimiento incluido','Contrato digital']
-  },
-  'departamentos': {
-    title: 'Departamentos',
-    img: 'https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1400&auto=format&fit=crop',
-    price: 'Desde S/ 900',
-    text: 'Amoblados y bien ubicados.',
-    long: '<strong>Descripción extendida:</strong> Departamentos céntricos y residenciales, opciones amobladas o sin amoblar, flexibilidad de contrato por temporada o largo plazo.',
-    chips: ['Wifi incluido','Amoblados','Ubicación urbana'],
-    features: ['Internet incluido (según plan)','Limpieza opcional','Estacionamiento disponible']
-  },
-  'asesoria': {
-    title: 'Asesoría Personalizada',
-    img: 'https://images.unsplash.com/photo-1523217582562-09d0def993a6?q=80&w=1400&auto=format&fit=crop',
-    price: 'Sin costo',
-    text: 'Acompañamiento total.',
-    long: '<strong>Descripción extendida:</strong> Asesoría en búsqueda, negociación y firma. Revisamos documentación y te explicamos cláusulas clave para proteger tus derechos.',
-    chips: ['Atención 24/7','Multicanal'],
-    features: ['Revisión de contratos','Checklist de entrega','Asesoría legal inicial']
-  },
-  'administracion': {
-    title: 'Administración de Propiedades',
-    img: 'https://images.unsplash.com/photo-1557800636-894a64c1696f?q=80&w=1400&auto=format&fit=crop',
-    price: 'Servicios para propietarios',
-    text: 'Gestión completa para propietarios.',
-    long: '<strong>Descripción extendida:</strong> Manejo de cobranzas, mantenimiento, reportes y atención a inquilinos para maximizar la rentabilidad y reducir vacancias.',
-    chips: ['Reportes mensuales','Mantenimiento incluido'],
-    features: ['Gestión de cobranzas','Reportes financieros','Mantenimiento programado']
-  },
-  'fotovid': {
-    title: 'Foto & Video Pro',
-    img: 'https://images.unsplash.com/photo-1476703993599-0035a21b17a9?q=80&w=1400&auto=format&fit=crop',
-    price: 'Servicios profesionales',
-    text: 'Anuncios que destacan con fotografía profesional y recorridos 360°.',
-    long: '<strong>Descripción extendida:</strong> Sesiones profesionales, HDR, tours 360 y edición para mejorar CTR del anuncio y reducir el tiempo de venta/alquiler.',
-    chips: ['HDR','Tour 360°'],
-    features: ['Fotografía HDR','Tour 360°','Edición profesional']
-  },
-  'legal': {
-    title: 'Asesoría Legal',
-    img: 'https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?q=80&w=1400&auto=format&fit=crop',
-    price: 'Servicio legal',
-    text: 'Verificación de documentos, contratos y garantías.',
-    long: '<strong>Descripción extendida:</strong> Revisión de títulos, cargas y redacción de cláusulas específicas para proteger a propietarios e inquilinos.',
-    chips: ['Revisión de cargas','Contratos'],
-    features: ['Revisión de títulos','Redacción de contratos','Asesoramiento en litigios']
-  }
-};
-
-/* Abre modal con contenido completo */
-function openServiceModal(svc){
-  const data = servicesData[svc] || {};
-  const img = document.querySelector(`[data-service="${svc}"]`)?.dataset.img || data.img || '';
-  modalTitle.textContent = data.title || '';
-  modalPrice.textContent = data.price || '';
-  modalShort.textContent = data.text || '';
-  modalText.textContent = ''; // short text moved to modalShort
-  modalMedia.innerHTML = img ? `<img src="${img}" alt="${data.title}">` : '';
-  modalDetails.innerHTML = data.long || '';
-  modalChips.innerHTML = (data.chips || []).map(c=>`<span class="chip" style="background:linear-gradient(90deg, rgba(212,175,55,.12), rgba(226,197,91,.14));">${c}</span>`).join('');
-  if(data.features && data.features.length){
-    modalDetails.innerHTML += '<ul style="margin-top:10px;padding-left:18px;">' + data.features.map(f=>`<li>${f}</li>`).join('') + '</ul>';
-  }
-  modal.classList.add('open');
-  modal.setAttribute('aria-hidden','false');
-}
-
-document.querySelectorAll('.btn-more, .svc-card[data-service]').forEach(btn=>{
-  btn.addEventListener('click', (e)=>{
-    const el = e.currentTarget || e.target;
-    // try to get the service key from dataset or ancestor
-    const serviceKey = el.dataset.service || el.closest('.svc-card')?.dataset.service;
-    if(!serviceKey) return;
-    openServiceModal(serviceKey);
-  });
-});
-
-document.getElementById('modalClose')?.addEventListener('click', ()=> {
-  modal.classList.remove('open');
-  modal.setAttribute('aria-hidden','true');
-});
-modal.addEventListener('click',(e)=>{ if(e.target===modal) { modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); } });
-
-/* Reservar visita -> llena el formulario y hace scroll */
-modalVisitBtn?.addEventListener('click', ()=>{
-  modal.classList.remove('open');
-  document.getElementById('contacto')?.scrollIntoView({behavior:'smooth'});
-  const mensaje = document.getElementById('mensaje');
-  if(mensaje){
-    mensaje.value = mensaje.value ? mensaje.value + '\n\nMe interesa agendar una visita.' : 'Me interesa agendar una visita.';
-    mensaje.focus();
-  }
-});
-
-/* ================= CARRUSEL TESTIMONIOS ================= */
-const track = document.getElementById('carouselTrack');
-const slides = Array.from(track.children);
-let current = 0;
-const dotsWrap = document.getElementById('dots');
-
-function goToSlide(idx){
-  current = idx;
-  track.style.transform = `translateX(-${current * 100}%)`;
-  updateDots();
-}
-function nextSlide(){ goToSlide((current+1) % slides.length) }
-function prevSlide(){ goToSlide((current-1+slides.length) % slides.length) }
-
-document.getElementById('nextBtn')?.addEventListener('click', nextSlide);
-document.getElementById('prevBtn')?.addEventListener('click', prevSlide);
-
-/* create controls (dots) */
-function createDots(){
-  dotsWrap.innerHTML = '';
-  slides.forEach((_,i)=>{
-    const d = document.createElement('div'); d.className='dot'; if(i===0) d.classList.add('active');
-    d.setAttribute('role','button'); d.setAttribute('aria-label','Ir al testimonio '+(i+1));
-    d.addEventListener('click', ()=> goToSlide(i));
-    dotsWrap.appendChild(d);
-  });
-}
-function updateDots(){
-  document.querySelectorAll('.dot').forEach((dot, i)=> dot.classList.toggle('active', i===current));
-}
-createDots();
-
-/* autoplay with pause on hover */
-let autoplay = setInterval(nextSlide, 4500);
-const carouselEl = document.getElementById('carousel');
-carouselEl?.addEventListener('mouseenter', ()=> clearInterval(autoplay));
-carouselEl?.addEventListener('mouseleave', ()=> { clearInterval(autoplay); autoplay = setInterval(nextSlide, 4500); });
-
-/* ================= UBIGEO (Región -> Provincia -> Distrito) ================= */
-/* We focus only on Lambayeque, Cusco and Lima — full provinces and districts lists included */
-const dataUbigeo = {
-  "Lambayeque": {
-    "Chiclayo": [
-      "Chiclayo","José Leonardo Ortiz","La Victoria","Pimentel","Reque","Monsefú","Eten","Lagunas","Nueva Arica","Oyotún","Patapo","Pomalca","Pucalá","Santa Rosa","Saña","Cayaltí"
-    ],
-    "Ferreñafe": [
-      "Ferreñafe","Cañaris","Incahuasi","Manuel Antonio Mesones Muro","Pitipo","Pueblo Nuevo"
-    ],
-    "Lambayeque": [
-      "Lambayeque","Chochope","Illimo","Jayanca","Mochumí","Morrope","Motupe","Olmos","Pacora","Salas","San José","Túcume"
-    ]
-  },
-  "Cusco": {
-    "Cusco": [
-      "Cusco","San Sebastián","San Jerónimo","Santiago","Saylla","Wanchaq"
-    ],
-    "Acomayo": [
-      "Acomayo","Acopia","Acos","Mosoc Llacta","Pomacanchi","Rondocan","Sangarará"
-    ],
-    "Anta": [
-      "Anta","Ancahuasi","Cachimayo","Chinchaypujio","Huarocondo","Limatambo","Mollepata","Pucyura","Zurite"
-    ],
-    "Calca": [
-      "Calca","Coya","Lamay","Lares","Pisac","San Salvador","Taray","Yanatile"
-    ],
-    "Canas": [
-      "Yanaoca","Checca","Kunturkanki","Langui","Layo","Pampamarca","Quehue"
-    ],
-    "Canchis": [
-      "Sicuani","Checacupe","Combapata","Marangani","Pitumarca","San Pablo","San Pedro"
-    ],
-    "Chumbivilcas": [
-      "Santo Tomás","Capacmarca","Chamaca","Colquemarca","Livitaca","Llusco","Quiñota","Velille"
-    ],
-    "Espinar": [
-      "Espinar","Condoroma","Coporaque","Ocoruro","Pallpata","Pichigua","Suyckutambo"
-    ],
-    "La Convención": [
-      "Quillabamba","Echarate","Huayopata","Maranura","Ocobamba","Santa Ana","Santa Teresa","Vilcabamba"
-    ],
-    "Paruro": [
-      "Paruro","Accha","Ccapi","Colcha","Huanoquite","Omacha","Paccaritambo","Pillpinto","Yaurisque"
-    ],
-    "Paucartambo": [
-      "Paucartambo","Caicay","Challabamba","Colquepata","Huancarani","Kosñipata"
-    ],
-    "Quispicanchi": [
-      "Urcos","Andahuaylillas","Camanti","Ccarhuayo","Ccatca","Cusipata","Huaro","Lucre","Marcapata","Ocongate","Oropesa","Quiquijana"
-    ],
-    "Urubamba": [
-      "Urubamba","Chinchero","Huayllabamba","Machupicchu","Maras","Ollantaytambo","Yucay"
-    ]
-  },
-  "Lima": {
-    /* Provinces of Lima region with many districts (representative but comprehensive) */
-    "Lima": [
-      "Ancón","Ate","Barranco","Breña","Carabayllo","Chaclacayo","Chorrillos","Cieneguilla","Comas","El Agustino",
-      "Independencia","Jesús María","La Molina","La Victoria","Lima Cercado","Lince","Los Olivos","Lurigancho",
-      "Lurín","Magdalena del Mar","Miraflores","Pachacámac","Pucusana","Pueblo Libre","Puente Piedra","Punta Hermosa",
-      "Punta Negra","Rímac","San Bartolo","San Borja","San Isidro","San Juan de Lurigancho","San Juan de Miraflores",
-      "San Luis","San Martín de Porres","San Miguel","Santa Anita","Santa María del Mar","Santa Rosa","Santiago de Surco",
-      "Surquillo","Villa El Salvador","Villa María del Triunfo"
-    ],
-    "Barranca": [
-      "Barranca","Paramonga","Pativilca","Supe","Supe Puerto"
-    ],
-    "Cajatambo": [
-      "Cajatambo","Copa","Gorgor","Huancapón","Manás"
-    ],
-    "Canta": [
-      "Canta","Arahuay","Huamantanga","Huaros","Lachaqui","San Buenaventura","Santa Rosa de Quives"
-    ],
-    "Cañete": [
-      "San Vicente de Cañete","Asia","Calango","Cerro Azul","Chilca","Coayllo","Imperial","Lunahuaná","Mala","Nuevo Imperial","Pacarán","Quilmaná","San Antonio","San Luis","Santa Cruz de Flores","Zúñiga"
-    ],
-    "Huaral": [
-      "Huaral","Atavillos Alto","Atavillos Bajo","Aucallama","Chancay","Ihuarí","Lampian","Pacaraos","San Miguel de Acos","Santa Cruz de Andamarca","Sumbilca","Veintisiete de Noviembre"
-    ],
-    "Huarochirí": [
-      "Matucana","Antioquía","Callahuanca","Carampoma","Chicla","Cuenca","Huachupampa","Huanza","Huarochirí","Lahuaytambo","Langa","Laraos","Ricardo Palma","San Andrés de Tupicocha","San Antonio","San Bartolomé","San Damian","San Juan de Iris","San Juan de Tantaranche","San Lorenzo de Quinti","San Mateo","San Mateo de Otao","San Pedro de Casta","San Pedro de Huancayre","Sangallaya","Santa Cruz de Cocachacra","Santa Eulalia","Santiago de Anchucaya","Santiago de Tuna","Santo Domingo de Los Olleros","Surco"
-    ],
-    "Huaura": [
-      "Huacho","Ámbar","Caleta de Carquín","Checras","Hualmay","Huaura","Leoncio Prado","Paccho","Santa Leonor","Santa María","Sayan","Végueta"
-    ],
-    "Oyón": [
-      "Oyón","Andajes","Caujul","Cochamarca","Naván","Pachangara"
-    ],
-    "Yauyos": [
-      "Yauyos","Alis","Ayaviri","Azángaro","Cacra","Carania","Catahuasi","Chocos","Cochas","Colonia","Hongos","Huampara","Huancaya","Huangascar","Huantán","Huañec","Laraos","Lincha","Madeán","Miraflores","Omas","Putinza","Quinches","Quinocay","San Joaquín","San Pedro de Pilas","Tanta","Tauripampa","Tomas","Tupe","Viñac","Vitis"
-    ]
-  }
-};
-
-/* Wire up region/province/district selects (populate only Lambayeque, Cusco, Lima) */
-const $region = document.getElementById('region');
-const $provincia = document.getElementById('provincia');
-const $distrito = document.getElementById('distrito');
-
-(function initUbigeo(){
-  // ensure selects exist
-  if(!$region || !$provincia || !$distrito) return;
-  // populate region select with our three regions
-  Object.keys(dataUbigeo).forEach(r=>{
-    const opt = document.createElement('option'); opt.value = r; opt.textContent = r; $region.appendChild(opt);
-  });
-})();
-
-$region.addEventListener('change', ()=>{
-  const r = $region.value;
-  $provincia.innerHTML = '<option value="">Seleccione provincia</option>';
-  $distrito.innerHTML = '<option value="">Seleccione distrito</option>';
-  $provincia.disabled = !r; $distrito.disabled = true;
-  if(!r) return;
-  Object.keys(dataUbigeo[r]).forEach(p=>{ const opt = document.createElement('option'); opt.value = p; opt.textContent = p; $provincia.appendChild(opt); });
-});
-
-$provincia.addEventListener('change', ()=>{
-  const r=$region.value, p=$provincia.value;
-  $distrito.innerHTML = '<option value="">Seleccione distrito</option>';
-  $distrito.disabled = !(r && p);
-  if(!(r && p)) return;
-  dataUbigeo[r][p].forEach(d=>{ const opt=document.createElement('option'); opt.value=opt.textContent=d; $distrito.appendChild(opt); });
-});
-
-/* ================= FORM SUBMIT -> FORMSPREE (HU-05) ================= */
-const form = document.getElementById('contactForm');
-const toast = document.getElementById('toast');
-
-function showToast(msg, time=3800){
-  toast.textContent = msg; toast.style.display = 'block'; toast.style.opacity = '1';
-  setTimeout(()=> { toast.style.opacity = '0'; setTimeout(()=> toast.style.display='none',300); }, time);
-}
-
-if(form){
-  form.addEventListener('submit', async (e)=>{
-    e.preventDefault();
-    // basic email validation
-    const email = form.email.value.trim();
-    const regexEmail = /^[^\s@]+@[^\s@]+\.[^\s@]{2,}$/i;
-    if(!regexEmail.test(email)){ alert('Por favor ingresa un correo válido.'); form.email.focus(); return; }
-    // required fields check (HTML required handles it too)
-    try{
-      const resp = await fetch(form.action, {
-        method: form.method,
-        body: new FormData(form),
-        headers: { 'Accept': 'application/json' }
-      });
-      if(resp.ok){
-        showToast('✅ ¡Gracias! Tu solicitud fue enviada.');
-        form.reset();
-        $provincia.innerHTML = '<option value="">Seleccione provincia</option>'; $provincia.disabled=true;
-        $distrito.innerHTML = '<option value="">Seleccione distrito</option>'; $distrito.disabled=true;
-        window.scrollTo({top:0, behavior:'smooth'});
-      } else {
-        const data = await resp.json().catch(()=>null);
-        console.error(data);
-        alert('❌ Ocurrió un problema al enviar. Intenta de nuevo.');
+    /* ----------------------------------------------------------
+       DATOS DE UBIGEO (Perú) — resumen útil
+       ---------------------------------------------------------- */
+    const UBIGEO = {
+      'Lima': {
+        'Lima': [
+          'Ancón','Ate','Barranco','Breña','Carabayllo','Chaclacayo','Chorrillos','Cieneguilla','Comas','El Agustino','Independencia','Jesús María','La Molina','La Victoria','Lince','Los Olivos','Lurigancho','Lurín','Magdalena del Mar','Miraflores','Pachacámac','Pucusana','Pueblo Libre','Puente Piedra','Punta Hermosa','Punta Negra','Rímac','San Bartolo','San Borja','San Isidro','San Juan de Lurigancho','San Juan de Miraflores','San Luis','San Martín de Porres','San Miguel','Santa Anita','Santa María del Mar','Santa Rosa','Santiago de Surco','Surquillo','Villa El Salvador','Villa María del Triunfo'
+        ],
+        'Cañete':['Asia','San Vicente de Cañete','Lunahuaná','Mala','Imperial','Nuevo Imperial'],
+        'Huaral':['Aucallama','Chancay','Huaral','Atavillos Alto','Atavillos Bajo'],
+        'Huarochirí':['Matucana','San Mateo','Langa','San Pedro de Casta','Santa Eulalia']
+      },
+      'Cusco': {
+        'Cusco':['Cusco','San Sebastián','San Jerónimo','Santiago','Saylla','Wanchaq'],
+        'Calca':['Calca','Coya','Lamay','Lares','Pisac','San Salvador','Taray','Yanatile'],
+        'Urubamba':['Urubamba','Chinchero','Huayllabamba','Machupicchu','Maras','Ollantaytambo','Yucay']
+      },
+      'Arequipa': {
+        'Arequipa':['Arequipa','Alto Selva Alegre','Cerro Colorado','Characato','Chiguata','Jacobo Hunter','José Luis Bustamante y Rivero','Mariano Melgar','Miraflores','Paucarpata','Sabandía','Sachaca','Socabaya','Tiabaya','Uchumayo','Yanahuara','Yarabamba'],
+        'Camaná':['Camaná','José María Quimper','Mariano Nicolás Valcárcel']
+      },
+      'Lambayeque': {
+        'Chiclayo':['Chiclayo','José Leonardo Ortiz','La Victoria','Pimentel','Reque','Monsefú','Eten','Lagunas','Nueva Arica','Oyotún','Patapo','Pomalca','Pucalá','Santa Rosa','Saña','Cayaltí'],
+        'Ferreñafe':['Ferreñafe','Cañaris','Incahuasi','Mesones Muro','Pitipo','Pueblo Nuevo'],
+        'Lambayeque':['Lambayeque','Chochope','Illimo','Jayanca','Mochumí','Morrope','Motupe','Olmos','Pacora','Salas','San José','Túcume']
       }
-    }catch(err){
-      console.error(err);
-      alert('❌ Error de conexión. Revisa internet e inténtalo otra vez.');
-    }
-  });
-}
+    };
 
-/* ================= SCROLL SUAVE EN LINKS (cerrar menu si móvil) ================= */
-document.querySelectorAll('a[href^="#"]').forEach(a=>{
-  a.addEventListener('click', (e)=>{
-    const id = a.getAttribute('href');
-    if(id.length>1){
-      e.preventDefault();
-      document.querySelector(id)?.scrollIntoView({behavior:'smooth'});
-      menu.classList.remove('show');
-      modal.classList.remove('open');
+    // Poblado para filtros y formulario
+    function poblarUbigeo(selectRegion, selectProv, selectDist){
+      const rSel = document.getElementById(selectRegion);
+      const pSel = document.getElementById(selectProv);
+      const dSel = document.getElementById(selectDist);
+      // Regiones
+      if(rSel && Object.keys(UBIGEO).length){
+        Object.keys(UBIGEO).forEach(r=>{ const op=document.createElement('option'); op.value=r; op.textContent=r; rSel.appendChild(op); });
+      }
+      // Listeners
+      rSel?.addEventListener('change',()=>{
+        pSel.innerHTML='<option value="">Todas</option>';
+        dSel.innerHTML='<option value="">Todos</option>';
+        dSel.disabled = true;
+        if(!rSel.value){ pSel.disabled=true; return; }
+        pSel.disabled=false;
+        Object.keys(UBIGEO[rSel.value]).forEach(p=>{ const op=document.createElement('option'); op.value=p; op.textContent=p; pSel.appendChild(op); });
+      });
+      pSel?.addEventListener('change',()=>{
+        dSel.innerHTML='<option value="">Todos</option>';
+        if(!pSel.value){ dSel.disabled=true; return; }
+        dSel.disabled=false;
+        (UBIGEO[rSel.value][pSel.value]||[]).forEach(d=>{ const op=document.createElement('option'); op.value=d; op.textContent=d; dSel.appendChild(op); });
+      });
     }
-  });
-});
 
-/* ================= INIT carousel position ================= */
-(function initCarousel(){
-  track.style.transform = 'translateX(0)';
-  updateDots();
-})();
-</script>
-</body>
-</html>
+    // Filtros de la parte superior
+    poblarUbigeo('region','provincia','distrito');
+    // Formulario de contacto
+    poblarUbigeo('regionForm','provinciaForm','distritoForm');
+
+    /* ----------------------------------------------------------
+       DATA MOCK: ESPACIOS (30+) — marketplace eventos
+       Campos: id, title, tipo, region, provincia, distrito, aforo, precio, unidad, rating, img, chips, short, rules
+       ---------------------------------------------------------- */
+    const SPACES = [
+      {id:1,tipo:'Rooftop/Terraza',title:'Rooftop Vista Mar',region:'Lima',provincia:'Lima',distrito:'Miraflores',aforo:120,precio:600,unidad:'h',rating:4.9,img:'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=1400&auto=format&fit=crop',chips:['Vista 360°','Barra','Toldos'],short:'Cocteles y after offices con vista al mar.',rules:['No confeti metálico','Máx. 120 pers.']},
+      {id:2,tipo:'Salón',title:'Salón Urbano Centro',region:'Lima',provincia:'Lima',distrito:'Jesús María',aforo:150,precio:400,unidad:'h',rating:4.6,img:'https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1400&auto=format&fit=crop',chips:['Sonido','Parqueo'],short:'Cumpleaños y baby showers en zona céntrica.',rules:['Depósito S/500','Horario hasta 11:30 p.m.']},
+      {id:3,tipo:'Casa de campo',title:'Casa de Campo Valle Verde',region:'Lima',provincia:'Cañete',distrito:'Asia',aforo:200,precio:1200,unidad:'día',rating:4.8,img:'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1400&auto=format&fit=crop',chips:['Piscina','Parrilla'],short:'Bodas íntimas con áreas verdes.',rules:['No mascotas en piscina']},
+      {id:4,tipo:'Auditorio/Corporativo',title:'Auditorio Business Hub',region:'Lima',provincia:'Lima',distrito:'San Isidro',aforo:100,precio:300,unidad:'h',rating:4.7,img:'https://images.unsplash.com/photo-1497493292307-31c376b6e479?q=80&w=1400&auto=format&fit=crop',chips:['Proyector','Wifi'],short:'Capacitaciones y conferencias.',rules:['Prohibido fumar']},
+      {id:5,tipo:'Jardín/Quinta',title:'Quinta Los Olivos',region:'Lima',provincia:'Lima',distrito:'Santiago de Surco',aforo:180,precio:900,unidad:'día',rating:4.5,img:'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop',chips:['Carpas','Estacionamiento'],short:'Eventos al aire libre.',rules:['No fuego directo en césped']},
+      {id:6,tipo:'Local multiuso',title:'Nave Industrial Flex',region:'Lima',provincia:'Lima',distrito:'Lurín',aforo:300,precio:250,unidad:'h',rating:4.3,img:'https://images.unsplash.com/photo-1518600506278-4e8ef466b810?q=80&w=1400&auto=format&fit=crop',chips:['Modular','Accesible'],short:'Ferias y conciertos pequeños.',rules:['Respetar aforo']},
+      {id:7,tipo:'Salón',title:'Salón Colonial',region:'Cusco',provincia:'Cusco',distrito:'Cusco',aforo:90,precio:350,unidad:'h',rating:4.8,img:'https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1200&auto=format&fit=crop',chips:['Centro histórico','Sonido'],short:'Eventos con toque andino.',rules:['Música hasta 11:00 p.m.']},
+      {id:8,tipo:'Rooftop/Terraza',title:'Terraza Andina',region:'Cusco',provincia:'Urubamba',distrito:'Ollantaytambo',aforo:80,precio:480,unidad:'h',rating:4.9,img:'https://images.unsplash.com/photo-1511910849309-0dffb858b6fa?q=80&w=1400&auto=format&fit=crop',chips:['Vista montaña'],short:'Cocteles con vista al valle.',rules:['Clima variable']},
+      {id:9,tipo:'Jardín/Quinta',title:'Jardín del Río',region:'Arequipa',provincia:'Arequipa',distrito:'Sabandía',aforo:220,precio:850,unidad:'día',rating:4.5,img:'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop',chips:['Río cercano','Pista baile'],short:'Bodas y aniversarios al aire libre.',rules:['Cierre 12:00 a.m.']},
+      {id:10,tipo:'Auditorio/Corporativo',title:'Auditorio Yanahuara',region:'Arequipa',provincia:'Arequipa',distrito:'Yanahuara',aforo:120,precio:320,unidad:'h',rating:4.6,img:'https://images.unsplash.com/photo-1497493292307-31c376b6e479?q=80&w=1200&auto=format&fit=crop',chips:['Proyector','A/C'],short:'Workshops y lanzamientos.',rules:['Prohibido fumar']},
+      {id:11,tipo:'Casa de campo',title:'Hacienda Norte',region:'Lambayeque',provincia:'Chiclayo',distrito:'Pimentel',aforo:250,precio:1500,unidad:'día',rating:4.7,img:'https://images.unsplash.com/photo-1505691938895-1758d7feb511?q=80&w=1400&auto=format&fit=crop',chips:['Mar cerca','Piscina'],short:'Fiestas familiares grandes.',rules:['Música hasta 11:30 p.m.']},
+      {id:12,tipo:'Local multiuso',title:'Hangar Creativo',region:'Lima',provincia:'Lima',distrito:'Barranco',aforo:160,precio:280,unidad:'h',rating:4.6,img:'https://images.unsplash.com/photo-1518600506278-4e8ef466b810?q=80&w=1200&auto=format&fit=crop',chips:['Black box','Truss'],short:'Exhibiciones y shows.',rules:['Montaje dentro del horario']},
+      // Más entradas para superar 30
+      {id:13,tipo:'Salón',title:'Salón Mirador',region:'Lima',provincia:'Lima',distrito:'Pueblo Libre',aforo:110,precio:380,unidad:'h',rating:4.4,img:'https://images.unsplash.com/photo-1551884170-09fb70a3a2c3?q=80&w=1400&auto=format&fit=crop',chips:['Vista ciudad'],short:'Recepciones y aniversarios.',rules:['Depósito S/400']},
+      {id:14,tipo:'Rooftop/Terraza',title:'Sky Garden',region:'Lima',provincia:'Lima',distrito:'San Borja',aforo:90,precio:520,unidad:'h',rating:4.5,img:'https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=1200&auto=format&fit=crop',chips:['Jardín alto'],short:'After office con verde.',rules:['Máx. 90 pers.']},
+      {id:15,tipo:'Jardín/Quinta',title:'Jardín Primavera',region:'Lima',provincia:'Lima',distrito:'Ate',aforo:200,precio:780,unidad:'día',rating:4.3,img:'https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1200&auto=format&fit=crop',chips:['Carpas','Mobiliario'],short:'Eventos familiares.',rules:['No fuego directo']},
+            {id:16,tipo:'Auditorio/Corporativo',title:'Sala Innovación',region:'Lima',provincia:'Lima',distrito:'San Isidro',aforo:85,precio:340,unidad:'h',rating:4.8,img:'https://images.unsplash.com/photo-1497493292307-31c376b6e479?q=80&w=1200&auto=format&fit=crop',chips:['Streaming','Wifi'],short:'Charlas y webinars de innovación.',rules:['Ingreso con DNI']},
+      {id:17,tipo:'Local multiuso',title:'Box Cultural',region:'Lima',provincia:'Lima',distrito:'Barranco',aforo:140,precio:290,unidad:'h',rating:4.4,img:'https://images.unsplash.com/photo-1515165562835-c3b8c8e74d86?q=80&w=1400&auto=format&fit=crop',chips:['Escenario','Backstage'],short:'Shows, stand-up y lanzamientos.',rules:['No pirotecnia']},
+      {id:18,tipo:'Rooftop/Terraza',title:'Atardecer 180',region:'Lima',provincia:'Lima',distrito:'Magdalena del Mar',aforo:100,precio:500,unidad:'h',rating:4.6,img:'https://images.unsplash.com/photo-1513262599279-d2ae0bdf14e1?q=80&w=1400&auto=format&fit=crop',chips:['Vista mar','Parrilla'],short:'Cocteles al atardecer.',rules:['Respetar vecinos']},
+      {id:19,tipo:'Jardín/Quinta',title:'La Arboleda',region:'Lima',provincia:'Lima',distrito:'Cieneguilla',aforo:220,precio:950,unidad:'día',rating:4.7,img:'https://images.unsplash.com/photo-1533636721434-0e2d61030955?q=80&w=1400&auto=format&fit=crop',chips:['Áreas verdes','Zona niños'],short:'Bodas campestres y BBQ.',rules:['No drones sin permiso']},
+      {id:20,tipo:'Salón',title:'Salón Centro Histórico',region:'Cusco',provincia:'Cusco',distrito:'San Blas',aforo:70,precio:320,unidad:'h',rating:4.5,img:'https://images.unsplash.com/photo-1511578314322-379afb476865?q=80&w=1400&auto=format&fit=crop',chips:['Patio','Sonido'],short:'Reuniones íntimas con encanto.',rules:['Cierre 10:30 p.m.']},
+      {id:21,tipo:'Casa de campo',title:'Casa Andina Valley',region:'Cusco',provincia:'Urubamba',distrito:'Chinchero',aforo:160,precio:1100,unidad:'día',rating:4.8,img:'https://images.unsplash.com/photo-1501183638710-841dd1904471?q=80&w=1400&auto=format&fit=crop',chips:['Fogatero','Vista montaña'],short:'Eventos familiares y bodas íntimas.',rules:['No música alta después 11 p.m.']},
+      {id:22,tipo:'Auditorio/Corporativo',title:'Hub Arequipa',region:'Arequipa',provincia:'Arequipa',distrito:'Cerro Colorado',aforo:130,precio:330,unidad:'h',rating:4.6,img:'https://images.unsplash.com/photo-1520607162513-77705c0f0d4a?q=80&w=1400&auto=format&fit=crop',chips:['Proyector láser','Micros'],short:'Capacitaciones y foros.',rules:['Prohibido fumar']},
+      {id:23,tipo:'Local multiuso',title:'Pabellón Norte',region:'Lambayeque',provincia:'Chiclayo',distrito:'Chiclayo',aforo:280,precio:260,unidad:'h',rating:4.2,img:'https://images.unsplash.com/photo-1516574187841-cb9cc2ca948b?q=80&w=1400&auto=format&fit=crop',chips:['Techado','Carga trifásica'],short:'Ferias y expos.',rules:['Respetar aforo']},
+      {id:24,tipo:'Rooftop/Terraza',title:'Mirador San Isidro',region:'Lima',provincia:'Lima',distrito:'San Isidro',aforo:95,precio:560,unidad:'h',rating:4.9,img:'https://images.unsplash.com/photo-1468078809804-4c7b3e60a478?q=80&w=1400&auto=format&fit=crop',chips:['Vista ciudad','Barra'],short:'Cocteles premium.',rules:['No confeti']},
+      {id:25,tipo:'Jardín/Quinta',title:'Prado Alto',region:'Lima',provincia:'Lima',distrito:'La Molina',aforo:180,precio:820,unidad:'día',rating:4.4,img:'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop',chips:['Carpas','Estac.'],short:'Eventos familiares al aire libre.',rules:['No fuego directo en césped']},
+      {id:26,tipo:'Salón',title:'Salón Costa Verde',region:'Lima',provincia:'Lima',distrito:'San Miguel',aforo:120,precio:360,unidad:'h',rating:4.5,img:'https://images.unsplash.com/photo-1522199710521-72d69614c702?q=80&w=1400&auto=format&fit=crop',chips:['A/C','Iluminación'],short:'Cumpleaños y aniversarios.',rules:['Depósito S/400']},
+      {id:27,tipo:'Casa de campo',title:'Hacienda Pacífico',region:'Lima',provincia:'Cañete',distrito:'Lunahuaná',aforo:240,precio:1400,unidad:'día',rating:4.7,img:'https://images.unsplash.com/photo-1500534314209-a25ddb2bd429?q=80&w=1400&auto=format&fit=crop',chips:['Piscina','Viñedos'],short:'Bodas y full day.',rules:['No ingresar vidrio a piscina']},
+      {id:28,tipo:'Auditorio/Corporativo',title:'Centro Ejecutivo',region:'Lima',provincia:'Lima',distrito:'San Borja',aforo:110,precio:310,unidad:'h',rating:4.6,img:'https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1400&auto=format&fit=crop',chips:['Proyector','Wifi'],short:'Talleres y presentaciones.',rules:['No fumar']},
+      {id:29,tipo:'Local multiuso',title:'Galpón Creativo',region:'Lima',provincia:'Lima',distrito:'La Victoria',aforo:260,precio:240,unidad:'h',rating:4.1,img:'https://images.unsplash.com/photo-1475725679116-05dbd6c3e630?q=80&w=1400&auto=format&fit=crop',chips:['Black box','Rampas'],short:'Ferias y pop-ups.',rules:['Respetar horarios']},
+      {id:30,tipo:'Rooftop/Terraza',title:'Rooftop Bohemio',region:'Lima',provincia:'Lima',distrito:'Barranco',aforo:85,precio:510,unidad:'h',rating:4.8,img:'https://images.unsplash.com/photo-1517245386807-bb43f82c33c4?q=80&w=1400&auto=format&fit=crop',chips:['DJ booth','Iluminación'],short:'Cocteles y showcases.',rules:['Máx. 85 pers.']},
+      {id:31,tipo:'Jardín/Quinta',title:'Jardín Amanecer',region:'Arequipa',provincia:'Arequipa',distrito:'Sabandía',aforo:200,precio:880,unidad:'día',rating:4.5,img:'https://images.unsplash.com/photo-1500530855697-b586d89ba3ee?q=80&w=1400&auto=format&fit=crop',chips:['Pista baile','Carpas'],short:'Bodas y aniversarios.',rules:['Cierre 12:00 a.m.']},
+      {id:32,tipo:'Salón',title:'Salón Vista Norte',region:'Lambayeque',provincia:'Chiclayo',distrito:'La Victoria',aforo:100,precio:350,unidad:'h',rating:4.3,img:'https://images.unsplash.com/photo-1524758631624-e2822e304c36?q=80&w=1400&auto=format&fit=crop',chips:['Sonido','Estac.'],short:'Eventos corporativos y sociales.',rules:['Depósito S/300']}
+    ];
+
+    /* ----------------------------------------------------------
+       ESTADO Y UTILIDADES
+       ---------------------------------------------------------- */
+    const PAGE_SIZE = 9;
+    let page = 1;
+    let current = [...SPACES];
+    let favorites = new Set(JSON.parse(localStorage.getItem('fav')||'[]'));
+    const estado = document.getElementById('estado');
+    const lista = document.getElementById('lista');
+    const btnMas = document.getElementById('btnMas');
+    const favWrap = document.getElementById('favoritos');
+
+    const qs = (s,root=document)=> root.querySelector(s);
+    const qsa = (s,root=document)=> [...root.querySelectorAll(s)];
+    const money = (n)=> `S/ ${Number(n).toLocaleString('es-PE')}`;
+
+    /* ----------------------------------------------------------
+       RENDER DE CARDS
+       ---------------------------------------------------------- */
+    function cardTpl(it){
+      const chips = it.chips.map(c=>`<span class="chip">${c}</span>`).join('');
+      const fav = favorites.has(it.id) ? '★' : '☆';
+      return `
+      <article class="card zoom" data-id="${it.id}" tabindex="0" aria-label="${it.title}">
+        <div class="card-img">
+          <img src="${it.img}" alt="${it.title}">
+          <span class="card-badge">${it.tipo}</span>
+          <button class="fav-btn" data-fav="${it.id}" aria-label="Favorito ${it.title}">${fav}</button>
+        </div>
+        <div class="card-body">
+          <div class="card-title">
+            <strong>${it.title}</strong>
+            <span class="stars">★ ${it.rating.toFixed(1)}</span>
+          </div>
+          <div class="meta">
+            <span class="mini">${it.region} · ${it.provincia} · ${it.distrito}</span>
+            <span class="mini"><strong>${it.aforo}</strong> pax</span>
+            <span class="mini"><strong>${money(it.precio)}</strong> / ${it.unidad}</span>
+          </div>
+          <p class="text-muted">${it.short}</p>
+          <div class="meta">${chips}</div>
+          <div class="card-actions">
+            <button class="btn btn-primary" data-open="${it.id}">Ver detalles</button>
+            <button class="btn btn-secondary" data-visit="${it.id}">Agendar visita</button>
+          </div>
+        </div>
+      </article>`;
+    }
+
+    function render(list, append=false){
+      const slice = list.slice(0, page*PAGE_SIZE);
+      const html = slice.map(cardTpl).join('');
+      if(!append) lista.innerHTML = html; else lista.insertAdjacentHTML('beforeend', html);
+      reveal('.zoom');
+      estado.textContent = `${slice.length} de ${list.length} resultados`;
+      btnMas.style.display = slice.length < list.length ? 'inline-block' : 'none';
+      bindCardEvents();
+    }
+
+    function bindCardEvents(){
+      // abrir modal
+      qsa('[data-open]').forEach(b=>{
+        b.onclick = ()=> openModal(Number(b.dataset.open));
+      });
+      // visita
+      qsa('[data-visit]').forEach(b=>{
+        b.onclick = ()=> {
+          const it = SPACES.find(x=>x.id===Number(b.dataset.visit));
+          showToast(`Visita solicitada para “${it.title}”`);
+          document.getElementById('contacto').scrollIntoView({behavior:'smooth'});
+        };
+      });
+      // favoritos
+      qsa('[data-fav]').forEach(b=>{
+        b.onclick = ()=> toggleFav(Number(b.dataset.fav), b);
+      });
+      // accesible con Enter
+      qsa('.card').forEach(c=>{
+        c.addEventListener('keydown', (e)=>{
+          if(e.key==='Enter') c.querySelector('[data-open]')?.click();
+        });
+      });
+    }
+
+    function toggleFav(id, btnEl){
+      if(favorites.has(id)) favorites.delete(id); else favorites.add(id);
+      localStorage.setItem('fav', JSON.stringify([...favorites]));
+      if(btnEl) btnEl.textContent = favorites.has(id) ? '★' : '☆';
+      renderFav();
+    }
+
+    function renderFav(){
+      const favList = SPACES.filter(s=> favorites.has(s.id));
+      favWrap.innerHTML = favList.map(f=>`
+        <div class="pill" style="display:flex;gap:8px;align-items:center">
+          <button class="btn" style="padding:4px 8px" aria-label="Quitar favorito" onclick="(${toggleFav})( ${f.id} )">×</button>
+          <span>${f.title}</span><span class="tag">${money(f.precio)}/${f.unidad}</span>
+          <label class="pill"><input type="checkbox" class="cmp" value="${f.id}"> Comparar</label>
+        </div>
+      `).join('') || '<p class="text-muted">Aún no tienes favoritos.</p>';
+    }
+
+    /* ----------------------------------------------------------
+       FILTROS / ORDEN / BÚSQUEDA
+       ---------------------------------------------------------- */
+    const buscar = document.getElementById('buscar');
+    const region = document.getElementById('region');
+    const provincia = document.getElementById('provincia');
+    const distrito = document.getElementById('distrito');
+    const tipo = document.getElementById('tipo');
+    const aforo = document.getElementById('aforo');
+    const precioMax = document.getElementById('precioMax');
+    const orden = document.getElementById('orden');
+    const btnAplicar = document.getElementById('btnAplicar');
+    const btnLimpiar = document.getElementById('btnLimpiar');
+
+    function apply(){
+      const q = (buscar.value||'').toLowerCase().trim();
+      const r = region.value, p = provincia.value, d = distrito.value;
+      const t = tipo.value; const a = Number(aforo.value||0); const pm = Number(precioMax.value||0);
+      let out = SPACES.filter(s=>{
+        const text = `${s.title} ${s.short} ${s.tipo} ${s.region} ${s.provincia} ${s.distrito} ${s.chips.join(' ')}`.toLowerCase();
+        const passQ = !q || text.includes(q);
+        const passR = !r || s.region===r;
+        const passP = !p || s.provincia===p;
+        const passD = !d || s.distrito===d;
+        const passT = !t || s.tipo===t;
+        const passA = !a || s.aforo>=a;
+        const passPm = !pm || s.precio<=pm;
+        return passQ && passR && passP && passD && passT && passA && passPm;
+      });
+      switch(orden.value){
+        case 'precioAsc': out.sort((x,y)=>x.precio-y.precio); break;
+        case 'precioDesc': out.sort((x,y)=>y.precio-x.precio); break;
+        case 'ratingDesc': out.sort((x,y)=>y.rating-x.rating); break;
+        case 'aforoDesc': out.sort((x,y)=>y.aforo-x.aforo); break;
+        default: /* relevancia básica = score */ out.sort((x,y)=> (y.rating*10 + y.aforo/50) - (x.rating*10 + x.aforo/50));
+      }
+      current = out;
+      page = 1;
+      render(current);
+    }
+
+    btnAplicar.onclick = apply;
+    btnLimpiar.onclick = ()=>{
+      [buscar,region,provincia,distrito,tipo,aforo,precioMax].forEach(el=>{ if(el.tagName==='SELECT') el.selectedIndex=0; else el.value=''; });
+      provincia.disabled = true; distrito.disabled = true;
+      page = 1; current = [...SPACES]; render(current);
+    };
+    btnMas.onclick = ()=>{ page++; render(current, true); };
+
+    // actualizar combos dependientes si usuario escribe manualmente
+    region.addEventListener('change',()=>{ if(!region.value){provincia.disabled=true;distrito.disabled=true;} });
+    provincia.addEventListener('change',()=>{ if(!provincia.value){distrito.disabled=true;} });
+
+    /* ----------------------------------------------------------
+       MODAL DETALLES
+       ---------------------------------------------------------- */
+    const modal = document.getElementById('modal');
+    const modalMedia = document.getElementById('modalMedia');
+    const modalTitle = document.getElementById('modalTitle');
+    const modalPrice = document.getElementById('modalPrice');
+    const modalShort = document.getElementById('modalShort');
+    const modalChips = document.getElementById('modalChips');
+    const modalText = document.getElementById('modalText');
+    const modalDetails = document.getElementById('modalDetails');
+    const modalRules = document.getElementById('modalRules');
+    const modalClose = document.getElementById('modalClose');
+    const modalVisitBtn = document.getElementById('modalVisitBtn');
+    const modalContratoBtn = document.getElementById('modalContratoBtn');
+    const modalContactBtn = document.getElementById('modalContactBtn');
+
+    let activeId = null;
+
+    function openModal(id){
+      const it = SPACES.find(s=>s.id===id); if(!it) return;
+      activeId = id;
+      modalMedia.innerHTML = `<img src="${it.img}" alt="${it.title}">`;
+      modalTitle.textContent = it.title;
+      modalPrice.textContent = `${money(it.precio)} / ${it.unidad}`;
+      modalPrice.removeAttribute('aria-hidden');
+      modalShort.textContent = `${it.region} · ${it.provincia} · ${it.distrito} · ${it.aforo} pax · ★ ${it.rating.toFixed(1)}`;
+      modalChips.innerHTML = it.chips.map(c=>`<span class="chip">${c}</span>`).join('');
+      modalText.textContent = it.short;
+      modalDetails.innerHTML = `
+        <div class="grid grid-3">
+          <div><strong>Tipo</strong><div class="text-muted">${it.tipo}</div></div>
+          <div><strong>Aforo</strong><div class="text-muted">${it.aforo} personas</div></div>
+          <div><strong>Tarifa</strong><div class="text-muted">${money(it.precio)} / ${it.unidad}</div></div>
+        </div>`;
+      modalRules.innerHTML = `<strong>Reglas del espacio</strong><ul style="margin:8px 0 0 16px">${it.rules.map(r=>`<li>${r}</li>`).join('')}</ul>`;
+      modal.classList.add('open'); modal.setAttribute('aria-hidden','false');
+    }
+    function closeModal(){ modal.classList.remove('open'); modal.setAttribute('aria-hidden','true'); }
+
+    modalClose.onclick = closeModal;
+    modal.addEventListener('click', (e)=>{ if(e.target===modal) closeModal(); });
+    document.addEventListener('keydown', (e)=>{ if(e.key==='Escape'){ closeModal(); closeContrato(); } });
+
+    modalVisitBtn.onclick = ()=>{ showToast('Reserva preliminar registrada'); document.getElementById('contacto').scrollIntoView({behavior:'smooth'}); };
+    modalContactBtn.onclick = (e)=>{ /* solo navega a contacto */ };
+    modalContratoBtn.onclick = ()=> openContrato(activeId);
+
+    /* ----------------------------------------------------------
+       CONTRATO — MODAL Y FIRMA SIMPLE
+       ---------------------------------------------------------- */
+    const contratoModal = document.getElementById('contratoModal');
+    const contratoBody = document.getElementById('contratoBody');
+    const contratoClose = document.getElementById('contratoClose');
+    const firmarContrato = document.getElementById('firmarContrato');
+    const descargarContrato = document.getElementById('descargarContrato');
+    const aceptoContrato = document.getElementById('aceptoContrato');
+
+    function contratoHTML(it){
+      const hoy = new Date().toLocaleDateString('es-PE',{day:'2-digit',month:'2-digit',year:'numeric'});
+      return `
+      <h4 style="margin:0 0 8px">Entre: Spaciuz (Intermediario) y Cliente</h4>
+      <p><strong>Espacio:</strong> ${it.title} (${it.tipo}) — ${it.region}/${it.provincia}/${it.distrito}</p>
+      <p><strong>Tarifa:</strong> ${money(it.precio)} por ${it.unidad}. <strong>Aforo:</strong> ${it.aforo} personas.</p>
+      <p><strong>Fecha:</strong> <em>${hoy}</em>. <strong>Cláusulas:</strong> Respeto de aforo, horarios, limpieza y penalidades por daños. Cancelaciones sujetas a políticas del proveedor y mediación de Spaciuz.</p>
+      <ol>
+        <li>Uso exclusivo del espacio en horario pactado.</li>
+        <li>Prohibido fumar en interiores salvo áreas designadas.</li>
+        <li>Depósitos/reembolsos según plazos establecidos.</li>
+        <li>Firma digital válida como aceptación de condiciones.</li>
+      </ol>
+      <p class="text-muted">Este contrato es un modelo; los anexos (horarios, extras, penalidades) se adjuntan al confirmar la reserva.</p>`;
+    }
+
+    function openContrato(id){
+      const it = SPACES.find(s=>s.id===id); if(!it) return;
+      contratoBody.innerHTML = contratoHTML(it);
+      contratoModal.classList.add('open'); contratoModal.setAttribute('aria-hidden','false');
+    }
+    function closeContrato(){ contratoModal.classList.remove('open'); contratoModal.setAttribute('aria-hidden','true'); }
+
+    contratoClose.onclick = closeContrato;
+    contratoModal.addEventListener('click', (e)=>{ if(e.target===contratoModal) closeContrato(); });
+
+    firmarContrato.onclick = ()=>{
+      if(!aceptoContrato.checked){ showToast('Debes aceptar el contrato'); return; }
+      showToast('Contrato firmado digitalmente ✔');
+      closeContrato();
+    };
+
+    descargarContrato.onclick = ()=>{
+      const blob = new Blob([`<html><head><meta charset="utf-8"><title>Contrato</title></head><body>${contratoBody.innerHTML}</body></html>`],{type:'text/html'});
+      const url = URL.createObjectURL(blob);
+      const a = document.createElement('a');
+      a.href = url; a.download = 'contrato_spaciuz.html'; document.body.appendChild(a); a.click(); a.remove();
+      URL.revokeObjectURL(url);
+    };
+
+    /* ----------------------------------------------------------
+       COMPARADOR SIMPLE
+       ---------------------------------------------------------- */
+    const btnComparar = document.getElementById('btnComparar');
+    btnComparar.onclick = ()=>{
+      const ids = qsa('#favoritos .cmp:checked').map(i=> Number(i.value));
+      if(ids.length<2){ showToast('Elige al menos 2 favoritos'); return; }
+      const rows = SPACES.filter(s=> ids.includes(s.id));
+      // crear tabla dinámica debajo de Favoritos
+      let cmp = document.getElementById('cmpTable');
+      if(!cmp){
+        cmp = document.createElement('div');
+        cmp.id = 'cmpTable';
+        cmp.className = 'mt-12';
+        favWrap.insertAdjacentElement('afterend', cmp);
+      }
+      cmp.innerHTML = `
+        <div class="card">
+          <div class="card-body">
+            <h3 class="mt-0">Comparación</h3>
+            <div class="grid" style="grid-template-columns:200px repeat(${rows.length}, 1fr); gap:10px; overflow:auto">
+              <div class="text-muted">Campo</div>
+              ${rows.map(r=>`<div><strong>${r.title}</strong></div>`).join('')}
+              <div class="text-muted">Tipo</div>${rows.map(r=>`<div>${r.tipo}</div>`).join('')}
+              <div class="text-muted">Ubicación</div>${rows.map(r=>`<div>${r.region}/${r.provincia}/${r.distrito}</div>`).join('')}
+              <div class="text-muted">Aforo</div>${rows.map(r=>`<div>${r.aforo} pax</div>`).join('')}
+              <div class="text-muted">Tarifa</div>${rows.map(r=>`<div>${money(r.precio)}/${r.unidad}</div>`).join('')}
+              <div class="text-muted">Rating</div>${rows.map(r=>`<div>★ ${r.rating.toFixed(1)}</div>`).join('')}
+            </div>
+          </div>
+        </div>`;
+      showToast('Tabla de comparación generada');
+    };
+
+    /* ----------------------------------------------------------
+       CARRUSEL TESTIMONIOS
+       ---------------------------------------------------------- */
+    const track = document.getElementById('carouselTrack');
+    let idx = 0;
+    function slideTo(i){
+      idx = (i+track.children.length)%track.children.length;
+      track.style.transform = `translateX(-${idx*100}%)`;
+    }
+    document.getElementById('prevBtn').onclick = ()=> slideTo(idx-1);
+    document.getElementById('nextBtn').onclick = ()=> slideTo(idx+1);
+
+    /* ----------------------------------------------------------
+       FAQ ACORDEÓN
+       ---------------------------------------------------------- */
+    qsa('#faqAcc .acc-btn').forEach((btn)=>{
+      btn.addEventListener('click', ()=>{
+        const item = btn.parentElement;
+        item.classList.toggle('open');
+      });
+    });
+
+    /* ----------------------------------------------------------
+       FORMULARIO — VALIDACIÓN Y POLÍTICAS
+       ---------------------------------------------------------- */
+    const form = document.getElementById('contactForm');
+    const verPoliticas = document.getElementById('verPoliticas');
+    verPoliticas.onclick = (e)=>{ e.preventDefault(); alert('Tu información se usa solo para gestionar la reserva y no se comparte con terceros sin tu consentimiento.'); };
+
+    form.addEventListener('submit', (e)=>{
+      // Validación mínima nativa
+      if(!form.checkValidity()){
+        e.preventDefault(); e.stopPropagation();
+        showToast('Revisa los campos requeridos');
+        return;
+      }
+      // Envío normal a Formspree; mostramos toast amistoso
+      showToast('Enviando tu solicitud…');
+      // dejamos que el submit continúe
+    });
+
+    /* ----------------------------------------------------------
+       INICIALIZACIÓN
+       ---------------------------------------------------------- */
+    render(SPACES);
+    renderFav();
+  </script>
