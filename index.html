@@ -5,123 +5,150 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Spaciuz — Marketplace de Espacios para Eventos</title>
   <meta name="description" content="Encuentra y reserva espacios verificados para tus celebraciones en Perú: rooftops, jardines, salones, auditorios y casas de campo. Reserva, agenda visitas y firma con contratos claros." />
-  <meta name="theme-color" content="#111111" />
-  <link rel="canonical" href="https://spaciuz.com/">
+  <meta property="og:title" content="Spaciuz — Marketplace de Eventos" />
+  <meta property="og:description" content="Explora y reserva espacios verificados: cumpleaños, baby showers, bodas pequeñas y reuniones corporativas." />
+  <meta property="og:image" content="https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1200&auto=format&fit=crop" />
+  <meta name="twitter:card" content="summary_large_image" />
+  <link rel="canonical" href="https://spaciuz.com/" />
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700;800&display=swap" rel="stylesheet">
   <link rel="icon" href="https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg" type="image/svg+xml">
 
+  <!-- PWA manifest (simple, inline) -->
+  <link rel="manifest" href='data:application/json,{"name":"Spaciuz","short_name":"Spaciuz","start_url":".","display":"standalone","background_color":"#ffffff","theme_color":"#111111","icons":[{"src":"https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg","sizes":"512x512","type":"image/svg+xml"}]}'>
+
   <style>
-    /* ========== VARIABLES Y RESET ========== */
+    /* ==========================================================
+       GLOBAL / TOKENS
+       ========================================================== */
     :root{
       --bg:#faf6f0; --white:#ffffff; --black:#111111; --muted:#6b7280;
       --gold:#d4af37; --gold-2:#e2c55b; --accent:#1450b6;
       --radius:14px; --shadow:0 14px 28px rgba(0,0,0,.12);
-      --maxw:1200px; --gap:18px;
+      --maxw:1200px; --gap:20px;
     }
     *{box-sizing:border-box}
     html,body{height:100%;margin:0;font-family:'Poppins',system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--black);-webkit-font-smoothing:antialiased}
-    img{display:block;max-width:100%;height:auto}
+    img{max-width:100%;display:block}
     a{color:inherit;text-decoration:none}
     button{font-family:inherit}
-    ::selection{background:rgba(212,175,55,.2)}
+    ::selection{background:rgba(212,175,55,.25)}
 
-    /* ========== LAYOUT UTILS ========== */
+    /* LAYOUT HELPERS */
     .container{max-width:var(--maxw);margin:0 auto;padding:0 18px}
-    .grid{display:grid;gap:var(--gap)}
-    .grid-3{grid-template-columns:repeat(3,1fr)}
-    .grid-2{grid-template-columns:repeat(2,1fr)}
     .text-center{text-align:center}
     .text-muted{color:var(--muted)}
     .chip{display:inline-flex;align-items:center;padding:6px 10px;border-radius:999px;background:linear-gradient(90deg, rgba(212,175,55,.06), rgba(226,197,91,.06));font-weight:700;font-size:.86rem}
     .btn{padding:10px 14px;border-radius:10px;border:0;font-weight:800;cursor:pointer}
-    .btn-primary{background:linear-gradient(90deg,var(--accent),#1e66d6);color:#fff}
-    .btn-outline{background:transparent;border:1px solid rgba(0,0,0,.08);color:var(--black)}
-    .badge{display:inline-block;padding:6px 10px;border-radius:10px;background:var(--black);color:#fff;font-size:.78rem}
+    .btn-primary{background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#000}
+    .btn-ghost{background:transparent;border:1px dashed #ddd}
 
-    /* ========== HEADER ========== */
+    /* ==========================================================
+       HEADER
+       ========================================================== */
     header{position:sticky;top:0;left:0;right:0;background:linear-gradient(90deg, rgba(250,246,240,.98), rgba(245,240,233,.98));backdrop-filter:blur(6px);box-shadow:var(--shadow);z-index:1200;border-bottom:1px solid rgba(0,0,0,.04)}
-    .nav{max-width:var(--maxw);margin:auto;padding:12px 18px;display:flex;align-items:center;justify-content:space-between;gap:16px}
+    .nav{max-width:var(--maxw);margin:auto;padding:12px 18px;display:flex;align-items:center;gap:16px;justify-content:space-between}
     .brand{display:flex;align-items:center;gap:12px}
     .brand img{height:44px}
-    .nav-links{display:flex;gap:20px;list-style:none;margin:0;padding:0;align-items:center}
-    .nav-links a{font-weight:700;padding:8px 10px;border-radius:8px}
-    .hamb{display:none;font-size:26px;background:transparent;border:0;cursor:pointer}
-    @media (max-width:900px){
-      .nav-links{display:none;position:fixed;right:18px;top:68px;background:var(--white);padding:12px;border-radius:12px;box-shadow:0 18px 36px rgba(3,3,3,.12);flex-direction:column;min-width:220px}
-      .nav-links.show{display:flex}
+    nav ul{list-style:none;margin:0;padding:0;display:flex;gap:18px;align-items:center}
+    nav a{font-weight:700;padding:8px 10px;border-radius:8px}
+    .hamb{display:none;font-size:26px;cursor:pointer;background:transparent;border:0}
+    @media(max-width:900px){
+      nav ul{display:none;position:fixed;right:16px;top:68px;background:var(--white);padding:14px;border-radius:12px;box-shadow:0 18px 36px rgba(0,0,0,.12);flex-direction:column;min-width:220px}
+      nav ul.show{display:flex}
       .hamb{display:block}
     }
 
-    /* ========== HERO / BANNER ========== */
-    .hero{margin-top:72px;background-image:linear-gradient(120deg, rgba(12,18,30,.6), rgba(212,175,55,.08)), url('https://images.unsplash.com/photo-1529634892263-34c57c2b2a9b?q=80&w=1920&auto=format&fit=crop');background-size:cover;background-position:center;color:#fff;min-height:66vh;display:flex;align-items:center;justify-content:center;padding:72px 18px;text-align:center}
+    /* ==========================================================
+       HERO / BANNER
+       ========================================================== */
+    .hero{
+      margin-top:72px;
+      background-image: linear-gradient(120deg, rgba(12,18,30,.6), rgba(212,175,55,.12)),
+                        url('https://images.unsplash.com/photo-1519741497674-611481863552?q=80&w=1920&auto=format&fit=crop');
+      background-size:cover;
+      background-position:center;
+      color:#fff;
+      min-height:70vh;
+      display:flex;
+      align-items:center;
+      justify-content:center;
+      padding:72px 18px;
+      text-align:center;
+    }
     .hero-inner{max-width:980px}
-    .kicker{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.2);font-weight:800;margin-bottom:12px}
-    .hero h1{font-size:clamp(28px,6vw,56px);line-height:1.03;margin:8px 0 14px;font-weight:800}
-    .hero p{font-size:clamp(15px,1.8vw,18px);opacity:.95;margin:0 auto 22px;max-width:780px}
-    .cta{display:inline-flex;gap:10px;align-items:center;padding:12px 20px;border-radius:12px;background:linear-gradient(90deg,var(--gold),var(--gold-2));color:#111;font-weight:800;box-shadow:0 12px 22px rgba(212,175,55,.14)}
+    .kicker{display:inline-block;padding:6px 12px;border-radius:999px;border:1px solid rgba(255,255,255,.12);background:rgba(0,0,0,.2);font-weight:800;margin-bottom:14px}
+    .hero h1{font-size:clamp(30px,6vw,56px);line-height:1.03;margin:8px 0 18px;font-weight:800}
+    .hero p{font-size:clamp(15px,1.6vw,18px);opacity:.95;margin:0 auto 22px;max-width:760px}
+    .hero .cta{display:inline-flex;align-items:center;gap:10px;padding:12px 20px;border-radius:12px;font-weight:800;color:#111;background:linear-gradient(90deg,var(--gold),var(--gold-2));box-shadow:0 12px 22px rgba(212,175,55,.14)}
 
-    /* ========== SECCIONES ========== */
-    section{padding:56px 0}
-    .title{margin-bottom:18px}
-    .title h2{font-size:clamp(22px,3.5vw,34px);margin:0}
-    .subtitle{color:var(--muted);margin-top:8px}
+    /* ==========================================================
+       SECCIONES / TITULOS (mayor separación)
+       ========================================================== */
+    section{padding:72px 0}
+    .title{margin-bottom:64px;text-align:center} /* <- mayor separación solicitada */
+    .title h2{font-size:clamp(22px,3.6vw,34px);margin:0 0 12px}
+    .title p{color:var(--muted);margin:0}
 
-    /* ========== CARDS / SERVICIOS ========== */
-    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:18px}
-    @media (max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
-    @media (max-width:700px){.cards{grid-template-columns:1fr}}
-    .card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:0 10px 24px rgba(0,0,0,.06);display:flex;flex-direction:column;transition:transform .18s ease}
+    /* ==========================================================
+       SERVICIOS / CARDS
+       ========================================================== */
+    .cards{display:grid;grid-template-columns:repeat(3,1fr);gap:24px;align-items:stretch}
+    @media(max-width:1100px){.cards{grid-template-columns:repeat(2,1fr)}}
+    @media(max-width:700px){.cards{grid-template-columns:1fr}}
+    .card{background:var(--white);border-radius:var(--radius);overflow:hidden;box-shadow:var(--shadow);display:flex;flex-direction:column;transition:transform .18s}
     .card:hover{transform:translateY(-6px)}
     .card-img{height:220px;overflow:hidden;position:relative}
     .card-img img{width:100%;height:100%;object-fit:cover}
     .card-badge{position:absolute;left:12px;top:12px;padding:6px 10px;border-radius:999px;background:rgba(255,255,255,.95);font-weight:800;border:1px solid rgba(212,175,55,.45)}
-    .card-body{padding:16px;display:flex;flex-direction:column;gap:10px}
+    .card-body{padding:18px;display:flex;flex-direction:column;gap:10px}
     .meta{display:flex;gap:10px;flex-wrap:wrap}
-    .mini{font-size:.9rem;color:var(--muted)}
+    .mini{font-size:.92rem;color:var(--muted)}
 
-    /* ========== TESTIMONIOS (placeholder, estilos usados en Parte 2) ========== */
-    .carousel{border-radius:12px;overflow:hidden}
-    .carousel-track{display:flex;transition:transform .45s ease}
+    /* ==========================================================
+       CARRUSEL TESTIMONIOS (1 por 1)
+       ========================================================== */
+    .carousel{max-width:980px;margin:0 auto;border-radius:12px;overflow:hidden;box-shadow:var(--shadow);background:var(--white)}
+    .carousel-track{display:flex;transition:transform .5s ease}
+    .slide{min-width:100%;padding:36px}
+    .t-head{display:flex;gap:14px;align-items:center}
+    .t-head img{width:72px;height:72px;border-radius:50%;object-fit:cover}
+    .carousel-controls{display:flex;gap:12px;justify-content:center;padding:18px 0}
+    .btn-secondary{padding:8px 12px;border-radius:8px;border:1px solid #e6e6e6;background:#fff}
 
-    /* ========== FORMULARIO (estilos usados en Parte 2) ========== */
-    .form-card{background:var(--white);border-radius:var(--radius);box-shadow:0 10px 24px rgba(0,0,0,.06);padding:20px}
-    .form-row{display:grid;gap:12px;grid-template-columns:repeat(2,1fr)}
-    .form-row-3{display:grid;gap:12px;grid-template-columns:repeat(3,1fr)}
-    @media (max-width:900px){.form-row,.form-row-3{grid-template-columns:1fr}}
-    .form-card input,.form-card select,.form-card textarea{padding:12px;border:1px solid #e8e8e8;border-radius:10px;font-size:1rem}
-    .form-card textarea{min-height:120px}
-    .note{font-size:.9rem;color:var(--muted)}
+    /* ==========================================================
+       FORMULARIO
+       ========================================================== */
+    .form-card{background:var(--white);border-radius:var(--radius);box-shadow:var(--shadow);padding:28px;max-width:980px;margin:0 auto}
+    .form-grid{display:grid;gap:18px;grid-template-columns:repeat(2,1fr);align-items:start}
+    .form-grid-3{display:grid;gap:18px;grid-template-columns:repeat(3,1fr)}
+    @media(max-width:900px){.form-grid,.form-grid-3{grid-template-columns:1fr}}
+    .form-row{display:flex;flex-direction:column;gap:6px}
+    .form-card input,.form-card select,.form-card textarea{padding:12px;border:1px solid #e8e8e8;border-radius:10px;font-size:1rem;width:100%}
+    .form-card textarea{min-height:140px}
+    .note{font-size:.92rem;color:var(--muted)}
 
-    /* ========== FOOTER ========== */
+    /* ==========================================================
+       FOOTER / TOAST
+       ========================================================== */
     footer{background:#111;color:#eee;text-align:center;padding:28px 12px;margin-top:36px}
-
-    /* ========== TOAST ========== */
     .toast{position:fixed;right:18px;bottom:18px;background:rgba(30,30,30,.95);color:#fff;padding:12px 16px;border-radius:10px;display:none;z-index:2500}
-
-    /* ========== ACCESIBILIDAD / ANIM ========== */
-    .sr-only{position:absolute;width:1px;height:1px;padding:0;margin:-1px;overflow:hidden;clip:rect(0,0,0,0);white-space:nowrap;border:0}
-    .fade{opacity:0;transform:translateY(18px);transition:all .6s ease-out}
-    .fade.show{opacity:1;transform:none}
-    .zoom{opacity:0;transform:scale(.98);transition:all .6s ease-out}
-    .zoom.show{opacity:1;transform:scale(1)}
   </style>
 </head>
-
 <body>
   <a href="#contenido" class="sr-only">Saltar al contenido</a>
 
-  <!-- ========== HEADER ========== -->
+  <!-- HEADER -->
   <header>
-    <div class="nav container">
+    <div class="nav container" role="navigation" aria-label="Menú principal">
       <a class="brand" href="#inicio" aria-label="Inicio Spaciuz">
         <img src="https://spaciuz.com/wp-content/uploads/2025/02/logo_spaciuz_negro.svg" alt="Spaciuz logo">
-        <strong>Spaciuz</strong>
+        <strong style="font-size:1.05rem">Spaciuz</strong>
       </a>
 
-      <button class="hamb" id="hamb" aria-label="Abrir menú">☰</button>
+      <button class="hamb" id="hamb" aria-controls="menu" aria-expanded="false" aria-label="Abrir menú">☰</button>
 
       <nav>
-        <ul class="nav-links" id="menu">
+        <ul id="menu" aria-hidden="true">
           <li><a href="#servicios">Servicios</a></li>
           <li><a href="#testimonios">Testimonios</a></li>
           <li><a href="#contacto" class="btn btn-primary" style="padding:8px 12px">Contáctanos</a></li>
@@ -130,306 +157,258 @@
     </div>
   </header>
 
-  <!-- ========== HERO / BANNER ========== -->
+  <!-- HERO -->
   <main id="contenido">
     <section class="hero" id="inicio" role="region" aria-label="Banner principal">
-      <div class="hero-inner">
+      <div class="hero-inner container">
         <div class="kicker">Contratos claros · Visitas agendadas · Acompañamiento</div>
         <h1>Encuentra tu lugar ideal en Perú</h1>
         <p>Explora salones, terrazas, jardines, auditorios y casas de campo. Reserva de forma segura con contratos claros y soporte en todo el proceso.</p>
-        <div style="margin-top:18px">
-          <a class="cta" href="#servicios">Explorar espacios</a>
+        <div style="margin-top:20px">
+          <a class="cta" href="#servicios" aria-label="Explorar espacios">Explorar espacios</a>
         </div>
       </div>
     </section>
 
-    <!-- ========== SERVICIOS ========== -->
-    <section id="servicios" class="container">
-      <div class="title text-center">
-        <h2>Servicios</h2>
-        <p class="subtitle">Espacios verificados para celebraciones sociales y eventos corporativos</p>
-      </div>
+    <!-- SERVICIOS -->
+    <section id="servicios" aria-label="Servicios">
+      <div class="container">
+        <div class="title">
+          <h2>Servicios</h2>
+          <p>Espacios verificados para celebraciones sociales y eventos corporativos</p>
+        </div>
 
-      <div class="cards" id="cardsWrap">
-        <!-- Card 1: Rooftop -->
-        <article class="card zoom" tabindex="0" aria-label="Rooftop con vista">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=1400&auto=format&fit=crop" alt="Rooftop con vista">
-            <span class="card-badge">Rooftop/Terraza</span>
-          </div>
-          <div class="card-body">
-            <strong>Rooftops con vista</strong>
-            <p class="text-muted">Cocteles, after office y cumpleaños con vista a la ciudad o al mar.</p>
-            <div class="meta">
-              <span class="mini"><strong>Hasta 120</strong> pax</span>
-              <span class="mini"><strong>Desde S/ 500</strong> / h</span>
-              <span class="mini">Lima Metropolitana</span>
+        <div class="cards" id="cardsWrap">
+          <!-- Card 1 -->
+          <article class="card" tabindex="0" aria-label="Rooftop con vista">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1533929736458-ca588d08c8be?q=80&w=1400&auto=format&fit=crop" alt="Rooftop con vista">
+              <span class="card-badge">Rooftop/Terraza</span>
             </div>
-            <div class="meta" style="margin-top:8px">
-              <span class="chip">Barra</span><span class="chip">DJ booth</span><span class="chip">Toldos</span>
+            <div class="card-body">
+              <strong>Rooftop con vista</strong>
+              <p class="text-muted">Cocteles y after office con vista al mar o a la ciudad.</p>
+              <div class="meta">
+                <span class="mini"><strong>Máx. 120</strong> pax</span>
+                <span class="mini"><strong>Desde S/ 500</strong> / h</span>
+                <span class="mini">Miraflores · Lima</span>
+              </div>
+              <div style="margin-top:12px">
+                <button class="btn btn-primary solicitar" data-servicio="Rooftop con vista">Solicitar este servicio</button>
+              </div>
             </div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary solicitar" data-servicio="Rooftop/Terraza">Solicitar este servicio</button>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Card 2: Jardín -->
-        <article class="card zoom" tabindex="0" aria-label="Jardín para eventos">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop" alt="Jardín para eventos">
-            <span class="card-badge">Jardín/Quinta</span>
-          </div>
-          <div class="card-body">
-            <strong>Jardines & Quintas</strong>
-            <p class="text-muted">Bodas íntimas, aniversarios y celebraciones al aire libre con áreas verdes.</p>
-            <div class="meta">
-              <span class="mini"><strong>Hasta 220</strong> pax</span>
-              <span class="mini"><strong>Desde S/ 800</strong> / día</span>
-              <span class="mini">Cieneguilla / Surco</span>
+          <!-- Card 2 -->
+          <article class="card" tabindex="0" aria-label="Jardín para bodas">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1529156069898-49953e39b3ac?q=80&w=1400&auto=format&fit=crop" alt="Jardín para bodas">
+              <span class="card-badge">Jardín/Quinta</span>
             </div>
-            <div class="meta" style="margin-top:8px">
-              <span class="chip">Carpas</span><span class="chip">Pista baile</span><span class="chip">Zona niños</span>
+            <div class="card-body">
+              <strong>Jardín campestre</strong>
+              <p class="text-muted">Bodas íntimas y celebraciones al aire libre.</p>
+              <div class="meta">
+                <span class="mini"><strong>Máx. 220</strong> pax</span>
+                <span class="mini"><strong>Desde S/ 800</strong> / día</span>
+                <span class="mini">Surco · Cieneguilla</span>
+              </div>
+              <div style="margin-top:12px">
+                <button class="btn btn-primary solicitar" data-servicio="Jardín campestre">Solicitar este servicio</button>
+              </div>
             </div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary solicitar" data-servicio="Jardín/Quinta">Solicitar este servicio</button>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Card 3: Salón -->
-        <article class="card zoom" tabindex="0" aria-label="Salón urbano">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1400&auto=format&fit=crop" alt="Salón urbano">
-            <span class="card-badge">Salón</span>
-          </div>
-          <div class="card-body">
-            <strong>Salones urbanos</strong>
-            <p class="text-muted">Locales céntricos para cumpleaños, baby showers y recepciones.</p>
-            <div class="meta">
-              <span class="mini"><strong>Hasta 150</strong> pax</span>
-              <span class="mini"><strong>Desde S/ 350</strong> / h</span>
-              <span class="mini">Jesús María / San Miguel</span>
+          <!-- Card 3 -->
+          <article class="card" tabindex="0" aria-label="Salón elegante">
+            <div class="card-img">
+              <img src="https://images.unsplash.com/photo-1524995997946-a1c2e315a42f?q=80&w=1400&auto=format&fit=crop" alt="Salón elegante">
+              <span class="card-badge">Salón</span>
             </div>
-            <div class="meta" style="margin-top:8px">
-              <span class="chip">Sonido</span><span class="chip">A/C</span><span class="chip">Estacionamiento</span>
+            <div class="card-body">
+              <strong>Salón elegante</strong>
+              <p class="text-muted">Locales céntricos para cumpleaños y reuniones corporativas.</p>
+              <div class="meta">
+                <span class="mini"><strong>Máx. 150</strong> pax</span>
+                <span class="mini"><strong>Desde S/ 350</strong> / h</span>
+                <span class="mini">Jesús María · Miraflores</span>
+              </div>
+              <div style="margin-top:12px">
+                <button class="btn btn-primary solicitar" data-servicio="Salón elegante">Solicitar este servicio</button>
+              </div>
             </div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary solicitar" data-servicio="Salón">Solicitar este servicio</button>
-            </div>
-          </div>
-        </article>
+          </article>
 
-        <!-- Card 4: Auditorio -->
-        <article class="card zoom" tabindex="0" aria-label="Auditorio corporativo">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1497493292307-31c376b6e479?q=80&w=1400&auto=format&fit=crop" alt="Auditorio corporativo">
-            <span class="card-badge">Auditorio/Corporativo</span>
-          </div>
-          <div class="card-body">
-            <strong>Auditorios & Salas</strong>
-            <p class="text-muted">Workshops, charlas y lanzamientos con proyector y streaming.</p>
-            <div class="meta">
-              <span class="mini"><strong>Hasta 130</strong> pax</span>
-              <span class="mini"><strong>Desde S/ 300</strong> / h</span>
-              <span class="mini">San Isidro / San Borja</span>
-            </div>
-            <div class="meta" style="margin-top:8px">
-              <span class="chip">Proyector</span><span class="chip">Streaming</span><span class="chip">Micros</span>
-            </div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary solicitar" data-servicio="Auditorio/Corporativo">Solicitar este servicio</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 5: Casa de campo -->
-        <article class="card zoom" tabindex="0" aria-label="Casa de campo">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?q=80&w=1400&auto=format&fit=crop" alt="Casa de campo">
-            <span class="card-badge">Casa de campo</span>
-          </div>
-          <div class="card-body">
-            <strong>Casas de campo</strong>
-            <p class="text-muted">Bodas campestres, full day o retiros con piscina y parrilla.</p>
-            <div class="meta">
-              <span class="mini"><strong>Hasta 240</strong> pax</span>
-              <span class="mini"><strong>Desde S/ 1100</strong> / día</span>
-              <span class="mini">Asia / Lunahuaná</span>
-            </div>
-            <div class="meta" style="margin-top:8px">
-              <span class="chip">Piscina</span><span class="chip">Parrilla</span><span class="chip">Áreas verdes</span>
-            </div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary solicitar" data-servicio="Casa de campo">Solicitar este servicio</button>
-            </div>
-          </div>
-        </article>
-
-        <!-- Card 6: Local multiuso -->
-        <article class="card zoom" tabindex="0" aria-label="Local multiuso">
-          <div class="card-img">
-            <img src="https://images.unsplash.com/photo-1518600506278-4e8ef466b810?q=80&w=1400&auto=format&fit=crop" alt="Local multiuso">
-            <span class="card-badge">Local multiuso</span>
-          </div>
-          <div class="card-body">
-            <strong>Locales multiuso</strong>
-            <p class="text-muted">Ferias, expos y shows pequeños en formato black box.</p>
-            <div class="meta">
-              <span class="mini"><strong>Hasta 300</strong> pax</span>
-              <span class="mini"><strong>Desde S/ 240</strong> / h</span>
-              <span class="mini">Barranco / La Victoria</span>
-            </div>
-            <div class="meta" style="margin-top:8px">
-              <span class="chip">Escenario</span><span class="chip">Truss</span><span class="chip">Rampas</span>
-            </div>
-            <div style="margin-top:12px">
-              <button class="btn btn-primary solicitar" data-servicio="Local multiuso">Solicitar este servicio</button>
-            </div>
-          </div>
-        </article>
-
-      </div> <!-- .cards -->
+        </div> <!-- /cards -->
+      </div> <!-- /container -->
     </section>
 
     <!-- PARTE 2/2: pega la siguiente sección inmediatamente después de esta línea -->
     <!-- ================= TESTIMONIOS ================= -->
-    <section id="testimonios" class="container">
-      <div class="title text-center">
-        <h2>Testimonios</h2>
-        <p class="subtitle">Experiencias reales de clientes que celebraron con nosotros</p>
-      </div>
-
-      <div class="carousel" aria-roledescription="carousel" aria-label="Testimonios">
-        <div class="carousel-track" id="carouselTrack" role="list">
-          <!-- slide 1 -->
-          <div class="slide" role="listitem">
-            <div class="t-head">
-              <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Ana Lopez">
-              <div style="margin-left:10px">
-                <strong>Ana López</strong><br>
-                <span class="mini text-muted">Baby shower en jardín</span>
-              </div>
-            </div>
-            <p style="margin-top:14px">“Reservar en Spaciuz fue facilísimo. El jardín que elegimos estaba impecable y la atención fue muy amable.”</p>
-          </div>
-
-          <!-- slide 2 -->
-          <div class="slide" role="listitem">
-            <div class="t-head">
-              <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Carlos Mendoza">
-              <div style="margin-left:10px">
-                <strong>Carlos Mendoza</strong><br>
-                <span class="mini text-muted">Evento corporativo</span>
-              </div>
-            </div>
-            <p style="margin-top:14px">“El auditorio estaba totalmente equipado. El soporte técnico y la claridad del contrato me dieron seguridad.”</p>
-          </div>
-
-          <!-- slide 3 -->
-          <div class="slide" role="listitem">
-            <div class="t-head">
-              <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Lucia Fernandez">
-              <div style="margin-left:10px">
-                <strong>Lucía Fernández</strong><br>
-                <span class="mini text-muted">Cumpleaños en terraza</span>
-              </div>
-            </div>
-            <p style="margin-top:14px">“La terraza con vista al mar hizo que mi cumpleaños sea inolvidable. El proceso fue claro y confiable.”</p>
-          </div>
+    <section id="testimonios" aria-label="Testimonios">
+      <div class="container">
+        <div class="title">
+          <h2>Testimonios</h2>
+          <p>Lo que opinan nuestros clientes</p>
         </div>
 
-        <div class="carousel-controls" style="margin-top:14px;text-align:center">
-          <button class="btn btn-outline" id="prev">◀</button>
-          <button class="btn btn-outline" id="next">▶</button>
+        <div class="carousel" role="region" aria-roledescription="carousel" aria-label="Testimonios de clientes">
+          <div class="carousel-track" id="carouselTrack" role="list">
+            <!-- slide 1 -->
+            <div class="slide" role="listitem">
+              <div class="t-head">
+                <img src="https://randomuser.me/api/portraits/women/65.jpg" alt="Ana López">
+                <div>
+                  <strong>Ana López</strong>
+                  <div class="text-muted">Baby shower en jardín</div>
+                </div>
+              </div>
+              <p style="margin-top:16px">“Reservar en Spaciuz fue facilísimo. El jardín que elegimos estaba impecable y la atención fue muy amable.”</p>
+            </div>
+
+            <!-- slide 2 -->
+            <div class="slide" role="listitem">
+              <div class="t-head">
+                <img src="https://randomuser.me/api/portraits/men/43.jpg" alt="Carlos Mendoza">
+                <div>
+                  <strong>Carlos Mendoza</strong>
+                  <div class="text-muted">Evento corporativo</div>
+                </div>
+              </div>
+              <p style="margin-top:16px">“El auditorio estaba totalmente equipado. El soporte técnico y la claridad del contrato me dieron seguridad.”</p>
+            </div>
+
+            <!-- slide 3 -->
+            <div class="slide" role="listitem">
+              <div class="t-head">
+                <img src="https://randomuser.me/api/portraits/women/32.jpg" alt="Lucía Fernández">
+                <div>
+                  <strong>Lucía Fernández</strong>
+                  <div class="text-muted">Cumpleaños en terraza</div>
+                </div>
+              </div>
+              <p style="margin-top:16px">“La terraza con vista al mar hizo que mi cumpleaños sea inolvidable. Todo el proceso fue claro y confiable.”</p>
+            </div>
+          </div>
+
+          <div class="carousel-controls" aria-hidden="false" style="margin-top:10px">
+            <button class="btn btn-secondary" id="prevBtn" aria-label="Anterior">◀</button>
+            <button class="btn btn-secondary" id="nextBtn" aria-label="Siguiente">▶</button>
+          </div>
         </div>
       </div>
     </section>
 
     <!-- ================= CONTACTO ================= -->
-    <section id="contacto" class="container" style="margin-top:18px">
-      <div class="title text-center">
-        <h2>Contáctanos</h2>
-        <p class="subtitle">Cuéntanos tu evento y te conectamos con el espacio ideal</p>
-      </div>
-
-      <form id="contactForm" class="form-card" novalidate>
-        <div class="form-row">
-          <input type="text" id="nombre" name="nombre" placeholder="Nombres *" required aria-required="true">
-          <input type="text" id="apellidos" name="apellidos" placeholder="Apellidos *" required aria-required="true">
+    <section id="contacto" aria-label="Contáctanos">
+      <div class="container">
+        <div class="title">
+          <h2>Contáctanos</h2>
+          <p>Completa el formulario y te responderemos en breve</p>
         </div>
 
-        <div class="form-row" style="margin-top:10px">
-          <input type="email" id="email" name="email" placeholder="Correo electrónico *" required aria-required="true">
-          <input type="tel" id="telefono" name="telefono" placeholder="Teléfono (opcional)">
-        </div>
-
-        <div class="form-row" style="margin-top:10px">
-          <select id="servicio" name="servicio" required aria-required="true">
-            <option value="">Selecciona servicio *</option>
-            <option value="Rooftop/Terraza">Rooftop/Terraza</option>
-            <option value="Jardín/Quinta">Jardín/Quinta</option>
-            <option value="Salón">Salón</option>
-            <option value="Auditorio/Corporativo">Auditorio/Corporativo</option>
-            <option value="Casa de campo">Casa de campo</option>
-            <option value="Local multiuso">Local multiuso</option>
-          </select>
-
-          <select id="tipo_evento" name="tipo_evento" required aria-required="true">
-            <option value="">Tipo de evento *</option>
-            <option value="Cumpleaños">Cumpleaños</option>
-            <option value="Baby shower">Baby shower</option>
-            <option value="Boda pequeña">Boda pequeña</option>
-            <option value="Reunión corporativa">Reunión corporativa</option>
-            <option value="Graduación">Graduación</option>
-            <option value="Otro">Otro</option>
-          </select>
-        </div>
-
-        <div class="form-row-3" style="margin-top:10px">
-          <input type="date" id="fecha_evento" name="fecha_evento" required aria-required="true">
-          <input type="time" id="hora_evento" name="hora_evento">
-          <input type="number" id="invitados" name="invitados" min="1" placeholder="N° invitados *" required aria-required="true">
-        </div>
-
-        <div style="margin-top:10px" class="form-row">
-          <input type="number" id="duracion" name="duracion" min="1" placeholder="Duración (horas)">
-          <input type="number" id="presupuesto" name="presupuesto" min="0" placeholder="Presupuesto aproximado (S/)">
-        </div>
-
-        <div style="margin-top:10px">
-          <label class="note">Servicios extra (opcional)</label>
-          <div style="display:flex;gap:8px;flex-wrap:wrap;margin-top:8px">
-            <label style="border:1px solid #e6e6e6;padding:8px 10px;border-radius:999px"><input type="checkbox" name="extras" value="Catering"> Catering</label>
-            <label style="border:1px solid #e6e6e6;padding:8px 10px;border-radius:999px"><input type="checkbox" name="extras" value="Decoración"> Decoración</label>
-            <label style="border:1px solid #e6e6e6;padding:8px 10px;border-radius:999px"><input type="checkbox" name="extras" value="DJ/Sonido"> DJ/Sonido</label>
-            <label style="border:1px solid #e6e6e6;padding:8px 10px;border-radius:999px"><input type="checkbox" name="extras" value="Foto/Video"> Foto/Video</label>
-            <label style="border:1px solid #e6e6e6;padding:8px 10px;border-radius:999px"><input type="checkbox" name="extras" value="Mobiliario"> Mobiliario</label>
+        <form id="contactForm" class="form-card" novalidate>
+          <div class="form-grid">
+            <div class="form-row">
+              <label for="nombres" class="sr-only">Nombres</label>
+              <input id="nombres" name="nombres" type="text" placeholder="Nombres *" required>
+            </div>
+            <div class="form-row">
+              <label for="apellidos" class="sr-only">Apellidos</label>
+              <input id="apellidos" name="apellidos" type="text" placeholder="Apellidos *" required>
+            </div>
           </div>
-        </div>
 
-        <div style="margin-top:10px">
-          <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tu requerimiento (temática, necesidades técnicas, accesibilidad, etc.) *" required aria-required="true"></textarea>
-        </div>
+          <div class="form-grid" style="margin-top:8px">
+            <div class="form-row">
+              <label for="email" class="sr-only">Correo</label>
+              <input id="email" name="email" type="email" placeholder="Correo electrónico *" required>
+            </div>
+            <div class="form-row">
+              <label for="telefono" class="sr-only">Teléfono</label>
+              <input id="telefono" name="telefono" type="tel" placeholder="Teléfono (opcional)">
+            </div>
+          </div>
 
-        <div style="margin-top:12px;display:flex;gap:12px;align-items:center">
-          <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="acepto" required aria-required="true"> Acepto la <a href="#" id="link-politicas">política de privacidad</a> y el uso de mis datos para gestionar la reserva.</label>
-        </div>
+          <div class="form-grid-3" style="margin-top:12px">
+            <div class="form-row">
+              <label for="servicio" class="sr-only">Servicio</label>
+              <select id="servicio" name="servicio" required>
+                <option value="">Selecciona servicio *</option>
+                <option>Rooftop/Terraza</option>
+                <option>Jardín/Quinta</option>
+                <option>Salón</option>
+                <option>Auditorio/Corporativo</option>
+                <option>Casa de campo</option>
+                <option>Local multiuso</option>
+              </select>
+            </div>
 
-        <div style="margin-top:14px;display:flex;gap:12px;flex-wrap:wrap">
-          <button type="submit" class="btn btn-primary">Enviar solicitud</button>
-          <button type="reset" class="btn btn-outline">Limpiar formulario</button>
-        </div>
+            <div class="form-row">
+              <label for="tipo_evento" class="sr-only">Tipo de evento</label>
+              <select id="tipo_evento" name="tipo_evento" required>
+                <option value="">Tipo de evento *</option>
+                <option>Cumpleaños</option>
+                <option>Baby shower</option>
+                <option>Boda pequeña</option>
+                <option>Reunión corporativa</option>
+                <option>Graduación</option>
+                <option>Otro</option>
+              </select>
+            </div>
 
-        <p class="note" style="margin-top:12px">Te responderemos en menos de 48 horas hábiles. También puedes escribirnos al WhatsApp del equipo.</p>
-      </form>
+            <div class="form-row">
+              <label for="fecha_evento" class="sr-only">Fecha</label>
+              <input id="fecha_evento" name="fecha_evento" type="date" required>
+            </div>
+          </div>
+
+          <div class="form-grid" style="margin-top:12px">
+            <div class="form-row">
+              <label for="hora_evento" class="sr-only">Hora</label>
+              <input id="hora_evento" name="hora_evento" type="time" placeholder="Hora preferida">
+            </div>
+            <div class="form-row">
+              <label for="invitados" class="sr-only">Invitados</label>
+              <input id="invitados" name="invitados" type="number" min="1" placeholder="N° invitados *" required>
+            </div>
+          </div>
+
+          <div style="margin-top:12px">
+            <label class="note">Servicios extra (opcional)</label>
+            <div style="display:flex;gap:10px;flex-wrap:wrap;margin-top:8px">
+              <label style="padding:8px 10px;border:1px solid #e6e6e6;border-radius:999px"><input type="checkbox" name="extras" value="Catering"> Catering</label>
+              <label style="padding:8px 10px;border:1px solid #e6e6e6;border-radius:999px"><input type="checkbox" name="extras" value="Decoración"> Decoración</label>
+              <label style="padding:8px 10px;border:1px solid #e6e6e6;border-radius:999px"><input type="checkbox" name="extras" value="DJ/Sonido"> DJ/Sonido</label>
+              <label style="padding:8px 10px;border:1px solid #e6e6e6;border-radius:999px"><input type="checkbox" name="extras" value="Foto/Video"> Foto/Video</label>
+              <label style="padding:8px 10px;border:1px solid #e6e6e6;border-radius:999px"><input type="checkbox" name="extras" value="Mobiliario"> Mobiliario</label>
+            </div>
+          </div>
+
+          <div style="margin-top:14px">
+            <label for="mensaje" class="sr-only">Mensaje</label>
+            <textarea id="mensaje" name="mensaje" placeholder="Cuéntanos tu requerimiento (temática, necesidades técnicas, accesibilidad, etc.) *" required></textarea>
+          </div>
+
+          <div style="margin-top:14px;display:flex;gap:12px;align-items:center">
+            <label style="display:flex;gap:8px;align-items:center"><input type="checkbox" id="acepto" required> Acepto la <a href="#" id="link-politicas">política de privacidad</a></label>
+          </div>
+
+          <div style="margin-top:18px;display:flex;gap:12px;flex-wrap:wrap">
+            <button type="submit" class="btn btn-primary">Enviar solicitud</button>
+            <button type="reset" class="btn btn-ghost">Limpiar formulario</button>
+          </div>
+
+          <p class="note" style="margin-top:12px">Te responderemos en menos de 48 horas hábiles. También puedes escribirnos por WhatsApp.</p>
+        </form>
+      </div>
     </section>
 
-    <!-- ================= FOOTER ================= -->
-    <footer>
+    <!-- FOOTER -->
+    <footer role="contentinfo">
       <div class="container">
         <p>© 2025 Spaciuz — Marketplace de Espacios para Eventos en Perú</p>
-        <nav style="margin-top:8px">
+        <nav aria-label="Enlaces del pie">
           <a href="#servicios" style="color:#ddd;margin-right:8px">Servicios</a> ·
           <a href="#testimonios" style="color:#ddd;margin:0 8px">Testimonios</a> ·
           <a href="#contacto" style="color:#ddd;margin-left:8px">Contáctanos</a>
@@ -437,109 +416,131 @@
       </div>
     </footer>
 
-    <!-- ========== TOAST ========== -->
+    <!-- TOAST -->
     <div class="toast" id="toast" role="status" aria-live="polite">✅ Mensaje enviado con éxito</div>
 
   </main>
 
-  <!-- ========== SCRIPTS ========== -->
+  <!-- ================= SCRIPTS ================= -->
   <script>
-    /* ================= MENU MÓVIL ================= */
+    /* ----------------------------------------------------------
+       MENU MÓVIL
+       ---------------------------------------------------------- */
     const hamb = document.getElementById('hamb');
     const menu = document.getElementById('menu');
     if(hamb){
-      hamb.addEventListener('click', ()=> menu.classList.toggle('show'));
-      hamb.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') menu.classList.toggle('show'); });
+      hamb.addEventListener('click', ()=>{
+        menu.classList.toggle('show');
+        const expanded = hamb.getAttribute('aria-expanded') === 'true';
+        hamb.setAttribute('aria-expanded', String(!expanded));
+        menu.setAttribute('aria-hidden', String(expanded));
+      });
+      hamb.addEventListener('keydown', (e)=> { if(e.key === 'Enter' || e.key === ' ') hamb.click(); });
     }
 
-    /* ================= REVEAL ANIMATIONS ================= */
-    const reveal = (selector) => {
-      const obs = new IntersectionObserver((entries, observer) => {
-        entries.forEach(entry => {
-          if(entry.isIntersecting){
-            entry.target.classList.add('show');
-            observer.unobserve(entry.target);
-          }
+    /* ----------------------------------------------------------
+       REVEAL (anim simple)
+       ---------------------------------------------------------- */
+    const reveal = (selector)=> {
+      const obs = new IntersectionObserver((entries, observer)=>{
+        entries.forEach(entry=>{
+          if(entry.isIntersecting){ entry.target.classList.add('show'); observer.unobserve(entry.target); }
         });
-      }, { threshold: 0.16 });
-      document.querySelectorAll(selector).forEach(el => obs.observe(el));
+      },{threshold:0.18});
+      document.querySelectorAll(selector).forEach(el=>obs.observe(el));
     };
-    reveal('.fade'); reveal('.zoom');
+    reveal('.card'); reveal('.slide'); reveal('.hero-inner');
 
-    /* ================= CARRUSEL TESTIMONIOS ================= */
-    (function initCarousel(){
+    /* ----------------------------------------------------------
+       CARRUSEL TESTIMONIOS (1 por 1)
+       ---------------------------------------------------------- */
+    (function(){
       const track = document.getElementById('carouselTrack');
       const slides = Array.from(track.children);
       let idx = 0;
-      function go(i){
-        idx = (i + slides.length) % slides.length;
-        track.style.transform = `translateX(-${idx*100}%)`;
+      function update(){
+        track.style.transform = `translateX(-${idx * 100}%)`;
       }
-      document.getElementById('prev').addEventListener('click', ()=> go(idx-1));
-      document.getElementById('next').addEventListener('click', ()=> go(idx+1));
-      let auto = setInterval(()=> go(idx+1), 7000);
-      // pausa en hover
-      track.parentElement.addEventListener('mouseenter', ()=> clearInterval(auto));
-      track.parentElement.addEventListener('mouseleave', ()=> auto = setInterval(()=> go(idx+1), 7000));
-      // accesibilidad: flechas para navegar
-      document.addEventListener('keydown', (e)=> { if(e.key === 'ArrowLeft') go(idx-1); if(e.key==='ArrowRight') go(idx+1); });
+      document.getElementById('prevBtn').addEventListener('click', ()=> { idx = (idx - 1 + slides.length) % slides.length; update(); });
+      document.getElementById('nextBtn').addEventListener('click', ()=> { idx = (idx + 1) % slides.length; update(); });
+      // autoplay
+      let auto = setInterval(()=>{ idx = (idx+1) % slides.length; update(); }, 7000);
+      // pause on hover
+      const carousel = track.parentElement;
+      carousel.addEventListener('mouseenter', ()=> clearInterval(auto));
+      carousel.addEventListener('mouseleave', ()=> auto = setInterval(()=>{ idx = (idx+1) % slides.length; update(); }, 7000));
+      // keyboard navigation
+      document.addEventListener('keydown', (e)=>{
+        if(e.key === 'ArrowLeft') { idx = (idx - 1 + slides.length) % slides.length; update(); }
+        if(e.key === 'ArrowRight') { idx = (idx + 1) % slides.length; update(); }
+      });
+      // init
+      update();
     })();
 
-    /* ================= SOLICITAR SERVICIO -> RELLENA FORMULARIO ================= */
-    document.querySelectorAll('.solicitar').forEach(btn => {
-      btn.addEventListener('click', (e) => {
+    /* ----------------------------------------------------------
+       "SOLICITAR" BOTONES: rellenan select y llevan al formulario
+       ---------------------------------------------------------- */
+    document.querySelectorAll('.solicitar').forEach(btn=>{
+      btn.addEventListener('click', (e)=>{
         const servicio = btn.dataset.servicio || btn.getAttribute('data-servicio');
-        const select = document.getElementById('servicio');
-        if(select){
-          select.value = servicio;
-        }
-        // foco al formulario y desplazamiento suave
-        const contacto = document.getElementById('contacto');
-        if(contacto) contacto.scrollIntoView({behavior:'smooth', block:'start'});
-        // destacar la selección temporalmente
-        btn.textContent = 'Solicitado ✓';
-        setTimeout(()=> btn.textContent = 'Solicitar este servicio', 2200);
+        const sel = document.getElementById('servicio');
+        if(sel) sel.value = servicio;
+        document.getElementById('contacto').scrollIntoView({behavior:'smooth', block:'start'});
+        btn.disabled = true; btn.textContent = 'Añadido ✓';
+        setTimeout(()=> { btn.disabled=false; btn.textContent = 'Solicitar este servicio'; }, 1800);
       });
     });
 
-    /* ================= FORMULARIO: VALIDACIÓN & SUBIDA SIMULADA ================= */
+    /* ----------------------------------------------------------
+       FORMULARIO: validación simple y simulación de envío
+       ---------------------------------------------------------- */
     const form = document.getElementById('contactForm');
     const toast = document.getElementById('toast');
-    form.addEventListener('submit', async (e) => {
+    form.addEventListener('submit', async (e)=>{
       e.preventDefault();
-      // validación nativa + custom
+      // HTML5 validation
       if(!form.checkValidity()){
-        // mostrar mensajes nativos si se quiere; aquí alerta simplificada
-        alert('Por favor completa los campos obligatorios marcados con *');
+        // Show browser's native validation UI where supported
+        form.reportValidity?.();
+        // fallback
+        if(!form.reportValidity) alert('Por favor completa los campos obligatorios.');
         return;
       }
-      // extra: leer valores (podrías enviar a un endpoint real aquí)
-      const data = new FormData(form);
-      // Mostrar toast — simulación de envío
+      // Simulate sending
       toast.textContent = 'Enviando solicitud…';
       toast.style.display = 'block';
-      // Simular latencia de red
-      await new Promise(r => setTimeout(r, 900));
-      toast.textContent = '✅ Solicitud enviada correctamente. Te responderemos pronto.';
-      // limpiar form
+      await new Promise(r => setTimeout(r, 900)); // simula petición
+      toast.textContent = '✅ Solicitud enviada. Te responderemos pronto.';
+      // reset
       form.reset();
-      // ocultar después
-      setTimeout(()=> toast.style.display = 'none', 4200);
+      setTimeout(()=> toast.style.display = 'none', 3800);
     });
 
-    /* ================= ACCESIBILIDAD: ENTER EN CARDS ================= */
-    document.querySelectorAll('.card').forEach(card => {
-      card.addEventListener('keydown', (e) => {
+    /* ----------------------------------------------------------
+       ACCESIBILIDAD: ENTER en tarjetas -> activar primer botón
+       ---------------------------------------------------------- */
+    document.querySelectorAll('.card').forEach(card=>{
+      card.addEventListener('keydown', (e)=>{
         if(e.key === 'Enter'){
-          const btn = card.querySelector('.solicitar');
+          const btn = card.querySelector('.solicitar') || card.querySelector('.btn');
           if(btn) btn.click();
         }
       });
     });
 
-    /* ================= PEQUEÑAS MEJORAS ================= */
-    // Mostrar cta visible cuando se hace foco en hero (mejora UX)
-    document.querySelectorAll('.cta').forEach(c => c.addEventListener('keydown', (e) => { if(e.key==='Enter') location.hash = '#servicios'; }));
+    /* ----------------------------------------------------------
+       UTILITY: smooth anchor scroll for internal links
+       ---------------------------------------------------------- */
+    document.querySelectorAll('a[href^="#"]').forEach(a=>{
+      a.addEventListener('click', (e)=>{
+        const href = a.getAttribute('href');
+        if(href.length>1){
+          const target = document.querySelector(href);
+          if(target){ e.preventDefault(); target.scrollIntoView({behavior:'smooth', block:'start'}); }
+        }
+      });
+    });
   </script>
 </body>
 </html>
